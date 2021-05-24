@@ -1,0 +1,1 @@
+.box,p{height:100px;color:green}.box{width:100px;-webkit-transition:all 1s linear;-moz-transition:all 1s linear;transition:all 1s linear;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:flex}p{line-height:100}

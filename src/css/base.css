@@ -1,4 +1,54 @@
-html,
-body {
-  font-size: 'Noto Sans SC';
+/* 全局通用样式 */
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+img {
+  /* font-family: Microsoft YaHei, '宋体', Tahoma, Helvetica, Arial, '\5b8b\4f53',
+    sans-serif; */
+  font-family: Source Han Sans CN;
+  font-size: 14px;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a,
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  text-decoration: none;
+}
+
+/* 组件全局样式覆盖 */
+/* container 宽度 1200px */
+.container {
+  width: 1200px;
+  padding: 0;
+}
+
+/* 按钮聚焦 黑色边框 */
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: none;
+  /* box-shadow: none; */
 }

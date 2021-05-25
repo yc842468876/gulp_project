@@ -1,1 +1,1 @@
-body,html{font-size:'Noto Sans SC'}
+body,button,h1,h2,h3,h4,h5,h6,img,input,li,ol,select,textarea,ul{font-family:Source Han Sans CN;font-size:14px;padding:0}li,ol,ul{list-style:none}a,a:active,a:focus,a:hover,a:visited{text-decoration:none}.container{width:1200px;padding:0}.btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus{outline:0}

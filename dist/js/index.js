@@ -1,1 +1,1 @@
-"use strict";$(function(){console.log($,"jquery"),console.log(BASE_URL)});
+"use strict";$(function(){for(var t="",c=0;c<100;c++)t+="<div>".concat(c,"</div>");$("#other").html(t)});

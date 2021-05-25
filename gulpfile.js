@@ -126,6 +126,8 @@ const watchHandler = function () {
   gulp.watch('./src/sass/*.scss', sassHandler);
   gulp.watch('./src/js/*.js', jsHandler);
   gulp.watch('./src/pages/*.html', htmlHandler);
+  gulp.watch('./src/lib/**', libHandler);
+  gulp.watch('./src/images/**', imgHandler);
 };
 
 // 3、配置一个默认任务

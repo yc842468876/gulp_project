@@ -1,4 +1,732 @@
-.header {
-  height: 50px;
-  background-color: yellow;
+body {
+  padding-top: 109px;
+}
+// 头部导航样式
+#header {
+  width: 100%;
+  height: 109px;
+  border-bottom: 3px solid #e50211;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+  .header-nav {
+    display: flex;
+    justify-content: space-between;
+    // 左侧导航
+    .left {
+      display: flex;
+      .logo {
+        width: 145px;
+        height: 50px;
+        // background-color: gray;
+        margin-top: 30px;
+        margin-right: 37px;
+      }
+      .links {
+        margin-top: 35px;
+        .link-list {
+          display: flex;
+          .link-item {
+            a {
+              display: inline-block;
+              height: 40px;
+              line-height: 40px;
+              padding: 0 21px;
+              color: #4b4947;
+
+              &:hover {
+                color: #e70114;
+                background-color: #eee;
+              }
+            }
+            &.active a {
+              color: #e70114;
+            }
+          }
+          .divider {
+            margin-top: 10px;
+            width: 2px;
+            height: 20px;
+            background-color: #bcbcbc;
+          }
+        }
+      }
+    }
+    // 右侧搜索
+    .right {
+      display: flex;
+      justify-content: right;
+      .phone-number {
+        color: #4b4b48;
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 20px;
+        margin-top: 41px;
+      }
+      .search-inp {
+        margin-top: 40px;
+        .btn {
+          background-color: #9a9a9a;
+          color: #fff;
+          &:active {
+            background-color: #e70114;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------- 页面内容部分样式-START ---------------------------
+// 官网主图
+.main-pic {
+  .box {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// 方案标签
+.project-tags {
+  margin: 27px 0 24px 0;
+  .tag-list {
+    display: flex;
+    .list-item {
+      flex: 1;
+      width: 400px;
+      border: 1px solid #ababab;
+      display: flex;
+      &:nth-child(2) {
+        border-left-width: 0;
+        border-right-width: 0;
+      }
+      .img {
+        width: 92px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .desc {
+        h3 {
+          font-size: 20px;
+          color: #1f1a14;
+        }
+        p {
+          color: #595858;
+        }
+      }
+    }
+  }
+}
+
+// 睿选优课课程体系
+.course-system {
+  height: 990px;
+  background-color: #e6e6e6;
+  .title {
+    height: 228px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-size: 28px;
+      color: #211914;
+    }
+    hr {
+      width: 126px;
+      height: 3px;
+      background-color: #909090;
+    }
+    p.desc {
+      font-size: 18px;
+      color: #585757;
+    }
+  }
+  .content {
+    width: 100%;
+    height: 583px;
+    background-color: #fff;
+    .type-list {
+      padding-top: 60px;
+      display: flex;
+      justify-content: center;
+      .list-item {
+        width: 360px;
+        &:nth-child(2) {
+          margin: 0 24px;
+        }
+        .info {
+          width: 360px;
+          height: 372px;
+          background-size: 100% 100%;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+          .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+              margin-top: 55px;
+              font-size: 24px;
+              height: 24px;
+              line-height: 24px;
+              color: #fff;
+            }
+            hr {
+              width: 42px;
+              height: 2px;
+              background-color: #fff;
+            }
+            .btn {
+              background-color: #d60110;
+              border: 1px solid #d60110;
+              color: #fff;
+              width: 124px;
+              height: 36px;
+            }
+          }
+        }
+        .desc {
+          margin-top: 26px;
+          color: #595858;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+  .go-center-btn {
+    margin-top: 69px;
+    text-align: center;
+    .btn {
+      width: 268px;
+      height: 55px;
+      background-color: #d60110;
+      border-color: #d60110;
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+}
+
+.elite-lecturer {
+  height: 820px;
+  background: url('../images/lecturer_module_bg.png') no-repeat;
+  background-size: cover;
+  .title {
+    height: 233px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      color: #fff;
+      font-size: 28px;
+    }
+    hr {
+      width: 124px;
+      height: 2px;
+      background-color: #fff;
+    }
+    p {
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+  .lecturer-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 398px;
+    background-color: rgba(0, 0, 0, 0.45);
+    .bar {
+      color: #fff;
+      font-size: 28px;
+      &.bar-l {
+        margin-right: 50px;
+      }
+      &.bar-r {
+        margin-left: 50px;
+      }
+    }
+    .lecturer-item {
+      width: 196px;
+      height: 280px;
+      border: 1px solid #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      &.m-0-22 {
+        margin: 0 22px;
+      }
+      .photo {
+        margin-top: 12px;
+        width: 132px;
+        height: 132px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-bottom: 24px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .name {
+        font-size: 18px;
+        line-height: 18px;
+        margin-bottom: 14px;
+      }
+      .intro {
+        line-height: 20px;
+        padding: 0 10px;
+      }
+    }
+  }
+  .go-more-lecturers {
+    text-align: center;
+    .btn {
+      width: 268px;
+      height: 55px;
+      background-color: #d60110;
+      border-color: #d60110;
+      color: #fff;
+      font-size: 20px;
+      margin-top: 80px;
+    }
+  }
+}
+
+// 睿选优课20年
+.high-quality-lessons {
+  height: 1174px;
+  background-color: #e6e6e6;
+  .title {
+    height: 259px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > h2 {
+      color: #211912;
+      font-size: 28px;
+    }
+    & > hr {
+      width: 128px;
+      height: 2px;
+      background-color: #909091;
+    }
+    & > p {
+      color: #585757;
+    }
+  }
+  .content {
+    .btn-group-box {
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+      .btn {
+        width: 167px;
+        height: 47px;
+        background-color: #cdcdce;
+        border-color: #cdcdce;
+        color: #595858;
+        font-size: 18px;
+        margin: 0 1px;
+        &.active {
+          color: #fff;
+          background-color: #d60110;
+          border-color: #d60110;
+        }
+      }
+    }
+    .show-info {
+      height: 788px;
+      background-color: #fff;
+    }
+  }
+}
+
+// 学习平台
+.study-platform {
+  height: 722px;
+  background: url('../images/study_paltform_bg.png') no-repeat;
+  background-size: cover;
+  .title {
+    height: 233px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > h2 {
+      color: #fff;
+      font-size: 28px;
+    }
+    & > hr {
+      width: 128px;
+      height: 2px;
+      background-color: #fff;
+    }
+    & > p {
+      color: #fff;
+    }
+  }
+  .platform-list {
+    height: 299px;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .list-item {
+      width: 235px;
+      height: 137px;
+      background-color: #fff;
+      > img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .divide {
+      width: 1px;
+      height: 137px;
+      background-color: #b9b9b9;
+    }
+  }
+  .go-more-btn {
+    text-align: center;
+    .btn {
+      width: 268px;
+      height: 55px;
+      background-color: #d60110;
+      border-color: #d60110;
+      color: #fff;
+      font-size: 20px;
+      margin-top: 80px;
+    }
+  }
+}
+
+// 一站式解决方案
+.one-stop-solution {
+  height: 774px;
+  background-color: #e6e6e6;
+  .title {
+    height: 253px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > h2 {
+      color: #231915;
+      font-size: 28px;
+    }
+    & > hr {
+      width: 128px;
+      height: 2px;
+      background-color: #909091;
+    }
+    & > p {
+      font-size: 16px;
+      color: #231915;
+    }
+  }
+  .solution-list {
+    display: flex;
+    justify-content: center;
+    .list-item {
+      width: 300px;
+      height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &:nth-child(1) {
+        background: url('../images/one_stop_solution_01.png') no-repeat;
+      }
+      &:nth-child(2) {
+        background: url('../images/one_stop_solution_02.png') no-repeat;
+      }
+      &:nth-child(3) {
+        background: url('../images/one_stop_solution_03.png') no-repeat;
+      }
+      &:nth-child(4) {
+        background: url('../images/one_stop_solution_04.png') no-repeat;
+      }
+      & > img {
+        margin-bottom: 56px;
+      }
+      & > span {
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// 企业合作伙伴
+.enterprise-partner {
+  height: 874px;
+  background: url('../images/enterprise_partner_bg.png') no-repeat;
+  background-size: cover;
+  margin-bottom: 2px;
+  .title {
+    height: 234px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & > h2 {
+      color: #fff;
+      font-size: 28px;
+    }
+    & > hr {
+      width: 128px;
+      height: 2px;
+      background-color: #fff;
+    }
+    & > p {
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  .btn-box {
+    text-align: center;
+    margin-bottom: 55px;
+    .btn {
+      width: 352px;
+      height: 55px;
+      background-color: #d60110;
+      border-color: #d60110;
+      color: #fff;
+      font-size: 20px;
+    }
+  }
+  .partners {
+    display: flex;
+    justify-content: space-between;
+    .partner-intro {
+      width: 429px;
+      height: 463px;
+      border: 1px solid #918d85;
+      background-color: #c4cccc;
+      color: #575757;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .enterprise-logo {
+        width: 168px;
+        height: 168px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-top: 44px;
+        & > img {
+          width: 100%;
+          height: 100%;
+          background: red;
+        }
+      }
+      h3 {
+        font-size: 20px;
+        color: #000;
+      }
+      .line {
+        width: 362px;
+        height: 2px;
+        border-bottom: 2px dashed #9ca4a4;
+        margin: 20px 0;
+      }
+      p {
+        color: #575757;
+        padding: 0 32px;
+        line-height: 26px;
+        height: 104px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+      }
+    }
+    .partner-list {
+      width: 771px;
+      display: flex;
+      flex-wrap: wrap;
+      .partner-item {
+        width: 237px;
+        height: 141px;
+        background-color: pink;
+        border: 1px solid #cac5c2;
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+// ----------------------- 页面内容部分样式-END ---------------------------
+
+// 页脚
+#footer {
+  .other-info {
+    height: 263px;
+    background-color: #191c1e;
+    .links {
+      display: flex;
+      justify-content: space-between;
+      dl {
+        margin-top: 65px;
+        & > dt {
+          font-size: 16px;
+          color: #fff;
+          margin-bottom: 16px;
+        }
+        & > dd {
+          color: #c8cbca;
+          line-height: 25px;
+          a {
+            color: #c8cbca;
+            &:hover,
+            &:active {
+              color: #fff;
+            }
+          }
+        }
+      }
+      .contact-type {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .pic {
+          display: flex;
+          width: 120px;
+          margin-top: 42px;
+          justify-content: space-between;
+          .wxChat,
+          .consult-teacher {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #d5d5d5;
+            background-color: #858585;
+            line-height: 42px;
+            text-align: center;
+            font-size: 20px;
+            position: relative;
+            &:hover {
+              .ewm {
+                display: flex;
+              }
+            }
+            .ewm {
+              width: 200px;
+              height: 200px;
+              position: absolute;
+              top: -220px;
+              left: -79px;
+              // display: flex;
+              display: none;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              background-color: #fff;
+              &::after {
+                content: '';
+                display: block;
+                border: 10px solid transparent;
+                width: 0;
+                height: 0;
+                border-top-color: #fff;
+                position: absolute;
+                bottom: -20px;
+                left: 89px;
+              }
+              & > img {
+                width: 128px;
+                height: 128px;
+                margin-bottom: 14px;
+              }
+              & > p {
+                color: #4a4a47;
+                font-size: 14px;
+                line-height: 14px;
+              }
+            }
+          }
+        }
+        > dl {
+          margin-top: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .friendly-link {
+    background-color: #0c0f11;
+    .content {
+      height: 135px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .links {
+        line-height: 28px;
+        .title {
+          display: inline-block;
+          width: 70px;
+          height: 22px;
+          line-height: 20px;
+          border: 1px solid #c8cbca;
+          color: #c8cbca;
+          border-right-width: 0;
+          text-align: center;
+          position: relative;
+          margin-right: 26px;
+          &::before,
+          &::after {
+            border: 11px solid transparent;
+            border-left: 11px solid #0c0f11;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -1px;
+            right: -20px;
+            content: ' ';
+          }
+          &::before {
+            border-left-color: #c8cbca;
+            right: -22px;
+          }
+        }
+        a {
+          color: #c8cbca;
+          margin-right: 16px;
+          &:hover,
+          &:active {
+            color: #fff;
+          }
+        }
+      }
+      .copy-right {
+        margin-top: 14px;
+        color: #c8cbca;
+      }
+    }
+  }
 }

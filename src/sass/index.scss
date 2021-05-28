@@ -14,25 +14,27 @@ body {
   .header-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     // 左侧导航
     .left {
       display: flex;
+      align-items: center;
       .logo {
         width: 145px;
         height: 50px;
         // background-color: gray;
-        margin-top: 30px;
         margin-right: 37px;
       }
       .links {
-        margin-top: 35px;
+        height: 106px;
         .link-list {
           display: flex;
+          align-items: center;
           .link-item {
-            a {
+            & > a {
               display: inline-block;
-              height: 40px;
-              line-height: 40px;
+              height: 106px;
+              line-height: 106px;
               padding: 0 21px;
               color: #4b4947;
 
@@ -41,15 +43,95 @@ body {
                 background-color: #eee;
               }
             }
-            &.active a {
+            &.active > a {
               color: #e70114;
             }
           }
           .divider {
-            margin-top: 10px;
             width: 2px;
             height: 20px;
             background-color: #bcbcbc;
+          }
+          // 选课中心
+          .select-lesson-center {
+            position: relative;
+            &:hover {
+              .c {
+                display: flex;
+              }
+            }
+            .c {
+              position: absolute;
+              top: 106px;
+              left: -254px;
+              width: 1200px;
+              height: 800px;
+              display: none;
+              background-color: #fff;
+              box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.45);
+              justify-content: space-around;
+              border-top: 3px solid #e50211;
+              .category:nth-child(1),
+              .category:nth-child(2) {
+                width: 256px;
+              }
+              .category:nth-child(3) {
+                width: 346px;
+              }
+              .category {
+                > h3 {
+                  font-size: 20px;
+                  color: #e10210;
+                  border-left: 2px solid #e10210;
+                  padding-left: 14px;
+                }
+                > hr {
+                  border-color: #adadad;
+                }
+                .first-class-list {
+                  .first-class-list-item {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 18px;
+                    .first-class-name {
+                      width: 94px;
+                      height: 30px;
+                      background-color: #d8d8d9;
+                      color: #211816;
+                      font-size: 16px;
+                      line-height: 30px;
+                      text-align: center;
+                    }
+                    .second-class-list {
+                      width: 150px;
+                      line-height: 20px;
+                      padding: 5px 0;
+                      &.certify {
+                        width: 238px;
+                      }
+                      a {
+                        color: #595858;
+                        &:hover {
+                          color: #e70114;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              // 推荐课程
+              .recommend-list {
+                width: 164px;
+                margin-top: 35px;
+                .recommend-list-item {
+                  margin-bottom: 16px;
+                  img {
+                    width: 164px;
+                    height: 100px;
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -58,20 +140,20 @@ body {
     .right {
       display: flex;
       justify-content: right;
+      align-items: center;
       .phone-number {
         color: #4b4b48;
         font-size: 20px;
         font-weight: 600;
         margin-right: 20px;
-        margin-top: 41px;
       }
       .search-inp {
-        margin-top: 40px;
         .btn {
           background-color: #9a9a9a;
           color: #fff;
           &:active {
             background-color: #e70114;
+            border-color: #e70114;
           }
         }
       }
@@ -143,8 +225,8 @@ body {
     }
     hr {
       width: 126px;
-      height: 3px;
-      background-color: #909090;
+      border-top-width: 3px;
+      border-color: #909090;
     }
     p.desc {
       font-size: 18px;
@@ -191,8 +273,8 @@ body {
             }
             hr {
               width: 42px;
-              height: 2px;
-              background-color: #fff;
+              border-top-width: 2px;
+              border-color: #fff;
             }
             .btn {
               background-color: #d60110;
@@ -330,8 +412,8 @@ body {
     }
     & > hr {
       width: 128px;
-      height: 2px;
-      background-color: #909091;
+      border-top-width: 2px;
+      border-color: #909091;
     }
     & > p {
       color: #585757;
@@ -341,16 +423,19 @@ body {
     .btn-group-box {
       width: 100%;
       margin-bottom: 20px;
-      text-align: center;
-      .btn {
-        width: 167px;
-        height: 47px;
-        background-color: #cdcdce;
-        border-color: #cdcdce;
-        color: #595858;
-        font-size: 18px;
-        margin: 0 1px;
-        &.active {
+      // 推荐课程 tabs 页签
+      #recommendedCourseTab {
+        width: 836px;
+        margin: 0 auto;
+        a {
+          height: 47px;
+          background-color: #cdcdce;
+          color: #595858;
+          font-size: 18px;
+          text-align: center;
+          margin: 0 1px;
+        }
+        .active a {
           color: #fff;
           background-color: #d60110;
           border-color: #d60110;
@@ -360,6 +445,115 @@ body {
     .show-info {
       height: 788px;
       background-color: #fff;
+      // 推荐学习
+      #recommendedCourseTabPane1 {
+        .c {
+          height: 678px;
+          display: flex;
+          justify-content: space-evenly;
+          .category {
+            width: 256px;
+            .tit {
+              position: relative;
+              margin-top: 64px;
+              margin-bottom: 40px;
+              img {
+                width: 100%;
+                height: 104px;
+              }
+              p {
+                width: 100%;
+                font-size: 20px;
+                color: #fff;
+                position: absolute;
+                top: 38px;
+                left: 0;
+                text-align: center;
+              }
+            }
+            .lesson-list {
+              // background-color: pink;
+              &:hover {
+                background-color: #eee;
+              }
+              .list-item {
+                line-height: 30px;
+                .line1 {
+                  height: 30px;
+                  font-size: 16px;
+                  color: #000;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+                .line2 {
+                  color: #585757;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  & > a {
+                    height: 24px;
+                    width: 84px;
+                    text-align: center;
+                    background-color: #d50212;
+                    color: #fff;
+                    line-height: 24px;
+                    border-radius: 12px;
+                  }
+                }
+              }
+            }
+          }
+          .hot-lessons {
+            width: 240px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+              font-size: 20px;
+              color: #d60110;
+            }
+            .hot-lesson-list {
+              height: 540px;
+              .list-item {
+                display: flex;
+                flex-direction: column;
+                & > img {
+                  width: 240px;
+                  height: 140px;
+                  background-color: red;
+                }
+                & > p {
+                  width: 240px;
+                  color: #595858;
+                  line-height: 30px;
+                  text-align: center;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+            }
+            .hot-lesson-pagination .nav .active a {
+              color: #fff;
+              background-color: #d60110;
+              border-color: #d60110;
+            }
+          }
+        }
+        .go-select-lesson-center {
+          text-align: center;
+          .btn {
+            width: 268px;
+            height: 55px;
+            background-color: #d60110;
+            border-color: #d60110;
+            color: #fff;
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 }
@@ -381,8 +575,8 @@ body {
     }
     & > hr {
       width: 128px;
-      height: 2px;
-      background-color: #fff;
+      border-top-width: 2px;
+      border-color: #fff;
     }
     & > p {
       color: #fff;
@@ -439,8 +633,8 @@ body {
     }
     & > hr {
       width: 128px;
-      height: 2px;
-      background-color: #909091;
+      border-top-width: 2px;
+      border-color: #909091;
     }
     & > p {
       font-size: 16px;
@@ -499,8 +693,8 @@ body {
     }
     & > hr {
       width: 128px;
-      height: 2px;
-      background-color: #fff;
+      border-top-width: 2px;
+      border-color: #fff;
     }
     & > p {
       font-size: 16px;
@@ -540,7 +734,7 @@ body {
         & > img {
           width: 100%;
           height: 100%;
-          background: red;
+          // background: red;
         }
       }
       h3 {
@@ -571,10 +765,14 @@ body {
       .partner-item {
         width: 237px;
         height: 141px;
-        background-color: pink;
-        border: 1px solid #cac5c2;
+        // background-color: pink;
+        // border: 1px solid #cac5c2;
         margin-left: 20px;
         margin-bottom: 20px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

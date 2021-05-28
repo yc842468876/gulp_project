@@ -45,7 +45,10 @@
                   <a href="/pages/index.html">首页</a>
                 </li>
                 <li class="divider"></li>
-                <li class="link-item"><a href="#">选课中心</a></li>
+                <li class="link-item select-lesson-center">
+                  <a href="#">选课中心</a>
+                  <div class="c"></div>
+                </li>
                 <li class="divider"></li>
                 <li class="link-item"><a href="#">研究中心</a></li>
                 <li class="divider"></li>
@@ -82,7 +85,9 @@
       <!-- 轮播图 -->
       <section class="main-pic">
         <div class="box">
-          <img src="../images/banner_01.jpg" alt="banner_01" />
+          <a href="#">
+            <img src="../images/banner_01.jpg" alt="banner_01" />
+          </a>
         </div>
       </section>
 
@@ -272,18 +277,51 @@
           <div class="container">
             <!-- 按钮组 -->
             <div class="btn-group-box">
-              <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default active">
-                  推荐学习
-                </button>
-                <button type="button" class="btn btn-default">政策热点</button>
-                <button type="button" class="btn btn-default">培训技巧</button>
-                <button type="button" class="btn btn-default">睿选视角</button>
-                <button type="button" class="btn btn-default">答疑精选</button>
-              </div>
+              <ul id="recommendedCourseTab" class="nav nav-pills nav-justified">
+                <li role="presentation" class="active">
+                  <a href="#recommendedCourseTabPane1">推荐学习</a>
+                </li>
+                <li role="presentation">
+                  <a href="#recommendedCourseTabPane2">政策热点</a>
+                </li>
+                <li role="presentation">
+                  <a href="#recommendedCourseTabPane3">培训技巧</a>
+                </li>
+                <li role="presentation">
+                  <a href="#recommendedCourseTabPane4">睿选视角</a>
+                </li>
+                <li role="presentation">
+                  <a href="#recommendedCourseTabPane5">答疑精选</a>
+                </li>
+              </ul>
             </div>
             <!-- 内容展示 -->
-            <div class="show-info">内容展示，待开发...</div>
+            <div class="show-info tab-content">
+              <div
+                class="tab-pane fade in active"
+                id="recommendedCourseTabPane1"
+              >
+                <div class="c"></div>
+                <!-- 进入选课中心 -->
+                <div class="go-select-lesson-center">
+                  <button type="button" class="btn btn-default">
+                    进入选课中心 <i class="fa fa-long-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane2">
+                政策热点
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane3">
+                培训技巧
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane4">
+                睿选视角
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane5">
+                答疑精选
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -366,7 +404,7 @@
           <div class="partners">
             <div class="partner-intro">
               <div class="enterprise-logo">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_00.png" alt="" />
               </div>
               <h3>上海电气</h3>
               <div class="line"></div>
@@ -376,31 +414,31 @@
             </div>
             <div class="partner-list">
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_01.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_02.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_03.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_04.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_05.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_06.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_07.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_08.png" alt="" />
               </div>
               <div class="partner-item">
-                <img src="" alt="" />
+                <img src="../images/enterprise_partner_09.png" alt="" />
               </div>
             </div>
           </div>
@@ -495,17 +533,135 @@
             </div>
             <div class="copy-right">
               Copyright Bestway. All Rights Reserved. 百仕瑞企业管理顾问有限公司
-              版权所有 沪ICP备13015846号-3<img src="" alt="" />
+              版权所有 沪ICP备13015846号-3
+              <img src="../images/copy_right.jpg" alt="" />
             </div>
           </div>
         </div>
       </section>
     </footer>
 
+    <section id="test"></section>
+
+    <!-- -------------------------------模板片段 START--------------------------------------- -->
+    <!-- 选课中心 -->
+    <script id="selectProductCenterTmp" type="text/html">
+      <!-- 标签分类 -->
+      {{ set productList = product && product.length > 0 ? product : [] }}
+      {{each productList category idx1}}
+      <div class="category">
+        <h3>{{category.barName || '-'}}</h3>
+        <hr />
+        <ul class="first-class-list">
+          {{set levelChildrenModelList = category.levelChildrenModelList}}
+          {{each levelChildrenModelList firstClass idx2 }}
+          <li class="first-class-list-item">
+            <div class="first-class-name">{{firstClass.firstClassName}}</div>
+            <div class="second-class-list row {{idx1 == 2 ? 'certify' : ''}}">
+              {{set secondClassList = firstClass.secondClassList}} {{each
+              secondClassList secondClass idx3}}
+              <div
+                class="{{idx1 != 2 ? 'col-md-6 txt-ellipsis' : 'col-md-12 txt-ellipsis'}}"
+              >
+                <a href="#"> {{secondClass || '-'}} </a>
+              </div>
+              {{/each}}
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/each}}
+      <!-- 推荐课 -->
+      {{ set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
+      [] }}
+      <ul class="recommend-list">
+        {{each hotList prd prdIdx}}
+        <li class="recommend-list-item">
+          <a href="#">
+            <img
+              src="{{prd.imgUrl || '../images/lesson_category_01.png'}}"
+              alt=""
+            />
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+    <!-- 推荐课程 -->
+    <script id="recommandStudyTmp" type="text/html">
+      <!-- 推荐课程分类 -->
+      {{set categoryList = recommand && recommand.length ? recommand : []}}
+      {{set imgList = ['../images/lesson_category_01.png',
+      '../images/lesson_category_02.png', '../images/lesson_category_03.png']}}
+      {{each categoryList category idx1}}
+      <div class="category">
+        <div class="tit">
+          <img src="{{imgList[idx1] || ''}}" alt="" />
+          <p>{{category.firstClassName || '-'}}</p>
+        </div>
+        <div class="lesson-list">
+          {{set secondClassList = category.secondClassList}} {{each
+          secondClassList secondClass idx2}}
+          <div class="list-item">
+            <p class="line1">{{secondClass}}</p>
+            <p class="line2">上海/北京/苏州 <a href="#">立即报名</a></p>
+            <hr />
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/each}}
+      <!-- 热门课 -->
+      <div class="hot-lessons">
+        <h3>热门网课</h3>
+        <!-- 热门课程列表 -->
+        {{set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
+        []}} {{set pageList = [hotList.slice(0, 3), hotList.slice(3, 6)]}}
+        <ul class="hot-lesson-list">
+          <div class="tab-content">
+            {{each pageList page idx1}}
+            <div
+              class="{{idx1 == 0 ? 'tab-pane fade in active' : 'tab-pane fade'}}"
+              id="{{idx1 == 0 ? 'hotLessonPage1' : 'hotLessonPage2'}}"
+            >
+              {{each page}}
+              <li class="list-item">
+                <img
+                  src="{{$value.imgUrl || '../images/lesson_category_01.png'}}"
+                  alt=""
+                />
+                <p>{{$value.productName || '-'}}</p>
+              </li>
+              {{/each}}
+            </div>
+            {{/each}}
+          </div>
+        </ul>
+
+        <!-- 分页 -->
+        <div class="hot-lesson-pagination">
+          {{if pageList[1].length > 0}}
+          <ul class="nav nav-pills nav-justified">
+            <li role="presentation" class="active">
+              <a href="#hotLessonPage1">1</a>
+            </li>
+            <li role="presentation">
+              <a href="#hotLessonPage2">2</a>
+            </li>
+          </ul>
+          {{/if}}
+        </div>
+      </div>
+    </script>
+    <!-- -------------------------------模板片段 END--------------------------------------- -->
+
     <!-- 引入 jquery -->
     <script src="../lib/jquery/jquery.min.js"></script>
     <!-- 引入 bootstrap 所有的 js 插件 -->
     <script src="../lib/bootstrap@3/js/bootstrap.min.js"></script>
+    <!-- 引入模板引擎插件 -->
+    <script src="../lib/art-template/template-web.js"></script>
     <!-- 引入公共 js -->
     <script src="../js/common.js"></script>
     <!-- 引入页面 js -->

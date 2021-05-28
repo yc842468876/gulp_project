@@ -69,6 +69,25 @@ a:visited {
   text-overflow: ellipsis;
 }
 
+#return-top {
+  width: 50px;
+  height: 50px;
+  background-color: #d60110;
+  color: white;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  text-align: center;
+  display: none;
+}
+
+#return-top a {
+  color: white;
+  line-height: 20px;
+  display: block;
+  margin: 5px;
+}
+
 /* 全局通用样式 END ------------------------------------------*/
 
 /* 组件全局样式覆盖 START ------------------------------------------*/

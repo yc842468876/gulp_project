@@ -113,7 +113,7 @@ const webHandler = function () {
           // 代理标识符
           source: '/api',
           // 代理目标地址
-          target: 'http://192.168.9.10:8080/',
+          target: 'http://192.168.9.10:8080',
         },
       ],
     })

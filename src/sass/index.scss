@@ -1,169 +1,3 @@
-body {
-  padding-top: 109px;
-}
-// 头部导航样式
-#header {
-  width: 100%;
-  height: 109px;
-  border-bottom: 3px solid #e50211;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  background: #fff;
-  .header-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // 左侧导航
-    .left {
-      display: flex;
-      align-items: center;
-      .logo {
-        width: 145px;
-        height: 50px;
-        // background-color: gray;
-        margin-right: 37px;
-      }
-      .links {
-        height: 106px;
-        .link-list {
-          display: flex;
-          align-items: center;
-          .link-item {
-            & > a {
-              display: inline-block;
-              height: 106px;
-              line-height: 106px;
-              padding: 0 21px;
-              color: #4b4947;
-
-              &:hover {
-                color: #e70114;
-                background-color: #eee;
-              }
-            }
-            &.active > a {
-              color: #e70114;
-            }
-          }
-          .divider {
-            width: 2px;
-            height: 20px;
-            background-color: #bcbcbc;
-          }
-          // 选课中心
-          .select-lesson-center {
-            position: relative;
-            &:hover {
-              .c {
-                display: flex;
-              }
-            }
-            .c {
-              position: absolute;
-              top: 106px;
-              left: -254px;
-              width: 1200px;
-              height: 800px;
-              display: none;
-              background-color: #fff;
-              box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.45);
-              justify-content: space-around;
-              border-top: 3px solid #e50211;
-              .category:nth-child(1),
-              .category:nth-child(2) {
-                width: 256px;
-              }
-              .category:nth-child(3) {
-                width: 346px;
-              }
-              .category {
-                > h3 {
-                  font-size: 20px;
-                  color: #e10210;
-                  border-left: 2px solid #e10210;
-                  padding-left: 14px;
-                }
-                > hr {
-                  border-color: #adadad;
-                }
-                .first-class-list {
-                  .first-class-list-item {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 18px;
-                    .first-class-name {
-                      width: 94px;
-                      height: 30px;
-                      background-color: #d8d8d9;
-                      color: #211816;
-                      font-size: 16px;
-                      line-height: 30px;
-                      text-align: center;
-                    }
-                    .second-class-list {
-                      width: 150px;
-                      line-height: 20px;
-                      padding: 5px 0;
-                      &.certify {
-                        width: 238px;
-                      }
-                      a {
-                        color: #595858;
-                        &:hover {
-                          color: #e70114;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              // 推荐课程
-              .recommend-list {
-                width: 164px;
-                margin-top: 35px;
-                .recommend-list-item {
-                  margin-bottom: 16px;
-                  img {
-                    width: 164px;
-                    height: 100px;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    // 右侧搜索
-    .right {
-      display: flex;
-      justify-content: right;
-      align-items: center;
-      .phone-number {
-        color: #4b4b48;
-        font-size: 20px;
-        font-weight: 600;
-        margin-right: 20px;
-      }
-      .search-inp {
-        .inp {
-          width: 168px;
-        }
-        .btn {
-          background-color: #9a9a9a;
-          color: #fff;
-          &:active {
-            background-color: #e70114;
-            border-color: #e70114;
-          }
-        }
-      }
-    }
-  }
-}
-
 // ----------------------- 页面内容部分样式-START ---------------------------
 // 官网主图
 .main-pic {
@@ -178,29 +12,29 @@ body {
 .project-tags {
   margin: 27px 0 24px 0;
   .tag-list {
-    display: flex;
     .list-item {
-      flex: 1;
       width: 400px;
+      height: 115px;
+      display: inline-block;
       border: 1px solid #ababab;
-      display: flex;
       &:nth-child(2) {
         border-left-width: 0;
         border-right-width: 0;
       }
       .img {
-        width: 92px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        float: left;
+        margin: 38px 26px 0;
         img {
           width: 40px;
           height: 40px;
         }
       }
       .desc {
+        float: left;
+        width: 295px;
         h3 {
+          margin-top: 20px;
+          margin-bottom: 10px;
           font-size: 20px;
           color: #1f1a14;
         }
@@ -218,15 +52,14 @@ body {
   background-color: #e6e6e6;
   .title {
     height: 228px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding-top: 60px;
     h2 {
       font-size: 28px;
       color: #211914;
     }
     hr {
+      margin: 30px auto 20px auto;
       width: 126px;
       border-top-width: 3px;
       border-color: #909090;
@@ -242,10 +75,10 @@ body {
     background-color: #fff;
     .type-list {
       padding-top: 60px;
-      display: flex;
-      justify-content: center;
+      text-align: center;
       .list-item {
         width: 360px;
+        display: inline-block;
         &:nth-child(2) {
           margin: 0 24px;
         }
@@ -264,9 +97,6 @@ body {
             left: 0;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             h3 {
               margin-top: 55px;
               font-size: 24px;
@@ -278,6 +108,7 @@ body {
               width: 42px;
               border-top-width: 2px;
               border-color: #fff;
+              margin: 30px auto 20px auto;
             }
             .btn {
               background-color: #d60110;
@@ -292,6 +123,7 @@ body {
           margin-top: 26px;
           color: #595858;
           line-height: 26px;
+          text-align: left;
         }
       }
     }
@@ -316,10 +148,8 @@ body {
   background-size: cover;
   .title {
     height: 233px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding-top: 66px;
     h2 {
       color: #fff;
       font-size: 28px;
@@ -328,6 +158,7 @@ body {
       width: 124px;
       height: 2px;
       background-color: #fff;
+      margin: 30px auto 20px auto;
     }
     p {
       color: #fff;
@@ -335,53 +166,57 @@ body {
     }
   }
   .lecturer-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 398px;
     background-color: rgba(0, 0, 0, 0.45);
-    .bar {
-      color: #fff;
-      font-size: 28px;
-      &.bar-l {
-        margin-right: 50px;
-      }
-      &.bar-r {
-        margin-left: 50px;
-      }
-    }
-    .lecturer-item {
-      width: 196px;
-      height: 280px;
-      border: 1px solid #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      &.m-0-22 {
-        margin: 0 22px;
-      }
-      .photo {
-        margin-top: 12px;
-        width: 132px;
-        height: 132px;
-        overflow: hidden;
-        border-radius: 50%;
-        margin-bottom: 24px;
-        img {
-          width: 100%;
-          height: 100%;
+    text-align: center;
+
+    .box {
+      display: inline-block;
+      padding-top: 60px;
+      .bar {
+        float: left;
+        color: #fff;
+        font-size: 28px;
+        margin-top: 122px;
+        &.bar-l {
+          margin-right: 50px;
+        }
+        &.bar-r {
+          margin-left: 50px;
         }
       }
-      .name {
-        font-size: 18px;
-        line-height: 18px;
-        margin-bottom: 14px;
-      }
-      .intro {
-        line-height: 20px;
-        padding: 0 10px;
+      .lecturer-item {
+        float: left;
+        width: 196px;
+        height: 280px;
+        border: 1px solid #fff;
+        color: #fff;
+        text-align: center;
+        &.m-0-22 {
+          margin: 0 22px;
+        }
+        .photo {
+          margin-top: 12px;
+          width: 132px;
+          height: 132px;
+          overflow: hidden;
+          border-radius: 50%;
+          margin-bottom: 24px;
+          display: inline-block;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .name {
+          font-size: 18px;
+          line-height: 18px;
+          margin-bottom: 14px;
+        }
+        .intro {
+          line-height: 20px;
+          padding: 0 10px;
+        }
       }
     }
   }
@@ -405,10 +240,8 @@ body {
   background-color: #e6e6e6;
   .title {
     height: 259px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 70px;
+    text-align: center;
     & > h2 {
       color: #211912;
       font-size: 28px;
@@ -417,6 +250,7 @@ body {
       width: 128px;
       border-top-width: 2px;
       border-color: #909091;
+      margin: 30px auto 20px auto;
     }
     & > p {
       color: #585757;
@@ -446,19 +280,25 @@ body {
       }
     }
     .show-info {
-      height: 788px;
+      height: 726px;
       background-color: #fff;
-      // 推荐学习
-      #recommendedCourseTabPane1 {
-        .c {
-          height: 678px;
-          display: flex;
-          justify-content: space-evenly;
+      padding: 20px 32px;
+      .tab-c-l {
+        width: 840px;
+        height: 604px;
+        padding-top: 40px;
+        float: left;
+        // 推荐学习
+        #recommendedCourseTabPane1 {
           .category {
             width: 256px;
+            float: left;
+            margin-right: 35px;
+            &:last-child {
+              margin-right: 0;
+            }
             .tit {
               position: relative;
-              margin-top: 64px;
               margin-bottom: 40px;
               img {
                 width: 100%;
@@ -475,12 +315,14 @@ body {
               }
             }
             .lesson-list {
-              // background-color: pink;
               &:hover {
                 background-color: #eee;
               }
               .list-item {
                 line-height: 30px;
+                height: 71px;
+                margin-bottom: 30px;
+                border-bottom: 1px solid #ddd;
                 .line1 {
                   height: 30px;
                   font-size: 16px;
@@ -491,12 +333,11 @@ body {
                 }
                 .line2 {
                   color: #585757;
-                  display: flex;
-                  justify-content: space-between;
-                  align-items: center;
                   & > a {
+                    float: right;
                     height: 24px;
                     width: 84px;
+                    margin-top: 3px;
                     text-align: center;
                     background-color: #d50212;
                     color: #fff;
@@ -507,54 +348,54 @@ body {
               }
             }
           }
-          .hot-lessons {
-            width: 240px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            h3 {
-              font-size: 20px;
-              color: #d60110;
-            }
-            .hot-lesson-list {
-              height: 540px;
-              .list-item {
-                display: flex;
-                flex-direction: column;
-                & > img {
-                  width: 240px;
-                  height: 140px;
-                  background-color: red;
-                }
-                & > p {
-                  width: 240px;
-                  color: #595858;
-                  line-height: 30px;
-                  text-align: center;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
-                }
+        }
+      }
+      .tab-c-r {
+        width: 240px;
+        float: right;
+        .hot-lessons {
+          float: right;
+          height: 100%;
+          h3 {
+            font-size: 20px;
+            line-height: 40px;
+            color: #d60110;
+            text-align: center;
+          }
+          .hot-lesson-list {
+            height: 540px;
+            .list-item {
+              & > img {
+                width: 240px;
+                height: 140px;
+                background-color: red;
+              }
+              & > p {
+                width: 240px;
+                color: #595858;
+                line-height: 30px;
+                margin-bottom: 15px;
+                text-align: center;
               }
             }
-            .hot-lesson-pagination .nav .active a {
-              color: #fff;
-              background-color: #d60110;
-              border-color: #d60110;
-            }
           }
-        }
-        .go-select-lesson-center {
-          text-align: center;
-          .btn {
-            width: 268px;
-            height: 55px;
+          .hot-lesson-pagination .nav .active a {
+            color: #fff;
             background-color: #d60110;
             border-color: #d60110;
-            color: #fff;
-            font-size: 20px;
           }
+        }
+      }
+      // 去选课中心或查看更多
+      .go-select-lesson-center {
+        text-align: center;
+        .btn {
+          width: 268px;
+          height: 55px;
+          background-color: #d60110;
+          border-color: #d60110;
+          color: #fff;
+          font-size: 20px;
         }
       }
     }
@@ -568,10 +409,8 @@ body {
   background-size: cover;
   .title {
     height: 233px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding-top: 60px;
     & > h2 {
       color: #fff;
       font-size: 28px;
@@ -580,6 +419,7 @@ body {
       width: 128px;
       border-top-width: 2px;
       border-color: #fff;
+      margin: 30px auto 20px auto;
     }
     & > p {
       color: #fff;
@@ -588,22 +428,24 @@ body {
   .platform-list {
     height: 299px;
     background-color: rgba(0, 0, 0, 0.45);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .list-item {
-      width: 235px;
-      height: 137px;
-      background-color: #fff;
-      > img {
-        width: 100%;
-        height: 100%;
+    .container {
+      padding-top: 80px;
+      .list-item {
+        width: 239px;
+        height: 137px;
+        background-color: #fff;
+        float: left;
+        > img {
+          width: 100%;
+          height: 100%;
+        }
       }
-    }
-    .divide {
-      width: 1px;
-      height: 137px;
-      background-color: #b9b9b9;
+      .divide {
+        float: left;
+        width: 1px;
+        height: 137px;
+        background-color: #b9b9b9;
+      }
     }
   }
   .go-more-btn {
@@ -626,10 +468,8 @@ body {
   background-color: #e6e6e6;
   .title {
     height: 253px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-top: 66px;
+    text-align: center;
     & > h2 {
       color: #231915;
       font-size: 28px;
@@ -638,6 +478,7 @@ body {
       width: 128px;
       border-top-width: 2px;
       border-color: #909091;
+      margin: 30px auto 20px auto;
     }
     & > p {
       font-size: 16px;
@@ -645,15 +486,11 @@ body {
     }
   }
   .solution-list {
-    display: flex;
-    justify-content: center;
     .list-item {
       width: 300px;
       height: 430px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
+      float: left;
       &:nth-child(1) {
         background: url('../images/one_stop_solution_01.png') no-repeat;
       }
@@ -668,8 +505,11 @@ body {
       }
       & > img {
         margin-bottom: 56px;
+        width: 70px;
+        height: 70px;
+        margin-top: 140px;
       }
-      & > span {
+      & > p {
         font-size: 26px;
         font-weight: 600;
         color: #fff;
@@ -685,11 +525,9 @@ body {
   background-size: cover;
   margin-bottom: 2px;
   .title {
+    padding-top: 60px;
     height: 234px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     & > h2 {
       color: #fff;
       font-size: 28px;
@@ -698,6 +536,7 @@ body {
       width: 128px;
       border-top-width: 2px;
       border-color: #fff;
+      margin: 30px auto 20px auto;
     }
     & > p {
       font-size: 16px;
@@ -717,18 +556,17 @@ body {
     }
   }
   .partners {
-    display: flex;
-    justify-content: space-between;
     .partner-intro {
+      float: left;
       width: 429px;
       height: 463px;
       border: 1px solid #918d85;
       background-color: #c4cccc;
       color: #575757;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-align: center;
+      padding: 25px;
       .enterprise-logo {
+        display: inline-block;
         width: 168px;
         height: 168px;
         border-radius: 50%;
@@ -743,35 +581,28 @@ body {
       h3 {
         font-size: 20px;
         color: #000;
+        line-height: 30px;
       }
       .line {
-        width: 362px;
         height: 2px;
         border-bottom: 2px dashed #9ca4a4;
-        margin: 20px 0;
+        margin: 30px 0 20px 0;
       }
       p {
+        text-align: left;
         color: #575757;
-        padding: 0 32px;
         line-height: 26px;
-        height: 104px;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        overflow: hidden;
       }
     }
     .partner-list {
       width: 771px;
-      display: flex;
-      flex-wrap: wrap;
+      float: left;
       .partner-item {
         width: 237px;
         height: 141px;
-        // background-color: pink;
-        // border: 1px solid #cac5c2;
         margin-left: 20px;
         margin-bottom: 20px;
+        float: left;
         img {
           width: 100%;
           height: 100%;
@@ -782,152 +613,3 @@ body {
 }
 
 // ----------------------- 页面内容部分样式-END ---------------------------
-
-// 页脚
-#footer {
-  .other-info {
-    height: 263px;
-    background-color: #191c1e;
-    .links {
-      display: flex;
-      justify-content: space-between;
-      dl {
-        margin-top: 65px;
-        & > dt {
-          font-size: 16px;
-          color: #fff;
-          margin-bottom: 16px;
-        }
-        & > dd {
-          color: #c8cbca;
-          line-height: 25px;
-          a {
-            color: #c8cbca;
-            &:hover,
-            &:active {
-              color: #fff;
-            }
-          }
-        }
-      }
-      .contact-type {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .pic {
-          display: flex;
-          width: 120px;
-          margin-top: 42px;
-          justify-content: space-between;
-          .wxChat,
-          .consult-teacher {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            color: #d5d5d5;
-            background-color: #858585;
-            line-height: 42px;
-            text-align: center;
-            font-size: 20px;
-            position: relative;
-            &:hover {
-              .ewm {
-                display: flex;
-              }
-            }
-            .ewm {
-              width: 200px;
-              height: 200px;
-              position: absolute;
-              top: -220px;
-              left: -79px;
-              // display: flex;
-              display: none;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              background-color: #fff;
-              &::after {
-                content: '';
-                display: block;
-                border: 10px solid transparent;
-                width: 0;
-                height: 0;
-                border-top-color: #fff;
-                position: absolute;
-                bottom: -20px;
-                left: 89px;
-              }
-              & > img {
-                width: 128px;
-                height: 128px;
-                margin-bottom: 14px;
-              }
-              & > p {
-                color: #4a4a47;
-                font-size: 14px;
-                line-height: 14px;
-              }
-            }
-          }
-        }
-        > dl {
-          margin-top: 16px;
-          text-align: center;
-        }
-      }
-    }
-  }
-
-  .friendly-link {
-    background-color: #0c0f11;
-    .content {
-      height: 135px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .links {
-        line-height: 28px;
-        .title {
-          display: inline-block;
-          width: 70px;
-          height: 22px;
-          line-height: 20px;
-          border: 1px solid #c8cbca;
-          color: #c8cbca;
-          border-right-width: 0;
-          text-align: center;
-          position: relative;
-          margin-right: 26px;
-          &::before,
-          &::after {
-            border: 11px solid transparent;
-            border-left: 11px solid #0c0f11;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: -1px;
-            right: -20px;
-            content: ' ';
-          }
-          &::before {
-            border-left-color: #c8cbca;
-            right: -22px;
-          }
-        }
-        a {
-          color: #c8cbca;
-          margin-right: 16px;
-          &:hover,
-          &:active {
-            color: #fff;
-          }
-        }
-      }
-      .copy-right {
-        margin-top: 14px;
-        color: #c8cbca;
-      }
-    }
-  }
-}

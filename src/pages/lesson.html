@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <!-- 引入 bootstrap 样式 -->
     <link rel="stylesheet" href="../lib/bootstrap@3/css/bootstrap.min.css" />
     <!-- 引入字体图标 fontAwesome -->
@@ -13,9 +14,7 @@
       href="../lib/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <!-- 引入全局样式 -->
-    <link rel="stylesheet" href="../sass/global.css" />
-    <!-- 引入公共样式 -->
-    <link rel="stylesheet" href="../sass/common.css" />
+    <link rel="stylesheet" href="../css/base.css" />
     <!-- 引入界面样式 -->
     <link rel="stylesheet" href="../sass/index.css" />
 
@@ -30,48 +29,52 @@
     <!-- 头部导航部分 -->
     <header id="header">
       <div class="container">
-        <!-- 左侧导航 -->
-        <div class="left-nav">
-          <!-- logo -->
-          <div class="logo">
-            <a href="/pages/index.html"
-              ><img src="../images/logo.png" alt="logo"
-            /></a>
+        <div class="header-nav">
+          <!-- 左侧导航 -->
+          <div class="left">
+            <!-- logo -->
+            <div class="logo">
+              <a href="/pages/index.html"
+                ><img src="../images/logo.png" alt="logo"
+              /></a>
+            </div>
+            <!-- nav -->
+            <nav class="links">
+              <ul class="link-list">
+                <li class="link-item active">
+                  <a href="/pages/index.html">首页</a>
+                </li>
+                <li class="divider"></li>
+                <li class="link-item select-lesson-center">
+                  <a href="#">选课中心</a>
+                  <div class="c"></div>
+                </li>
+                <li class="divider"></li>
+                <li class="link-item"><a href="#">研究中心</a></li>
+                <li class="divider"></li>
+                <li class="link-item"><a href="#">睿选活动</a></li>
+                <li class="divider"></li>
+                <li class="link-item"><a href="#">干货资讯</a></li>
+                <li class="divider"></li>
+                <li class="link-item"><a href="#">关于睿选优课</a></li>
+              </ul>
+            </nav>
           </div>
-          <!-- nav -->
-          <ul class="link-list">
-            <li class="link-item active">
-              <a href="/pages/index.html">首页</a>
-            </li>
-            <li class="divider"></li>
-            <li class="link-item select-lesson-center">
-              <a href="#">选课中心</a>
-              <div class="link-item-mask"></div>
-            </li>
-            <li class="divider"></li>
-            <li class="link-item"><a href="#">研究中心</a></li>
-            <li class="divider"></li>
-            <li class="link-item"><a href="#">睿选活动</a></li>
-            <li class="divider"></li>
-            <li class="link-item"><a href="#">干货资讯</a></li>
-            <li class="divider"></li>
-            <li class="link-item"><a href="#">关于睿选优课</a></li>
-          </ul>
-        </div>
-        <!-- 右侧搜索 -->
-        <div class="right-nav">
-          <div class="phone-number"><span>400- 921- 0939</span></div>
-          <div class="input-group search-inp">
-            <input
-              type="text"
-              class="form-control inp"
-              placeholder="输入想搜索的关键词"
-            />
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
-                <i class="fa fa-search"></i>
-              </button>
-            </span>
+          <!-- 右侧搜索 -->
+          <div class="right">
+            <div class="phone-number"><span>400- 921- 0939</span></div>
+            <div class="input-group search-inp">
+              <input
+                type="text"
+                class="form-control inp"
+                placeholder="输入想搜索的关键词"
+              />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -208,51 +211,49 @@
           <p>整合多领域核心资源，打造一站式、全品类、高标准的培训赋能生态</p>
         </div>
         <div class="lecturer-list">
-          <div class="box">
-            <div class="bar bar-l"><i class="fa fa-angle-left"></i></div>
+          <div class="bar bar-l"><i class="fa fa-angle-left"></i></div>
 
-            <div class="lecturer-item">
-              <div class="photo">
-                <img src="../images/lecturer_tws.png" alt="" />
-              </div>
-              <div class="name">陶维胜</div>
-              <p class="intro">原富士康/好孩子高管，质量咨询培训专家</p>
+          <div class="lecturer-item">
+            <div class="photo">
+              <img src="../images/lecturer_tws.png" alt="" />
             </div>
-            <div class="lecturer-item m-0-22">
-              <div class="photo">
-                <img src="../images/lecturer_lmh.png" alt="" />
-              </div>
-              <div class="name">刘毛华</div>
-              <p class="intro">项目管理资深专家/剑桥大学国际培训师</p>
-            </div>
-            <div class="lecturer-item">
-              <div class="photo">
-                <img src="../images/lecturer_zbl.png" alt="" />
-              </div>
-              <div class="name">张宝雷</div>
-              <p class="intro">前华为高管，实战型研发管理培训专家</p>
-            </div>
-            <div class="lecturer-item m-0-22">
-              <div class="photo">
-                <img src="../images/lecturer_lcl.png" alt="" />
-              </div>
-              <div class="name">吕春兰</div>
-              <p class="intro">
-                实战谈判专家<br />交大、复旦EMBA最接地气谈判教授
-              </p>
-            </div>
-            <div class="lecturer-item">
-              <div class="photo">
-                <img src="../images/lecturer_yjc.png" alt="" />
-              </div>
-              <div class="name">杨京川</div>
-              <p class="intro">
-                原IBM资深销售管理专家<br />《销售管理策略制定方法论》创立者
-              </p>
-            </div>
-
-            <div class="bar bar-r"><i class="fa fa-angle-right"></i></div>
+            <div class="name">陶维胜</div>
+            <p class="intro">原富士康/好孩子高管，质量咨询培训专家</p>
           </div>
+          <div class="lecturer-item m-0-22">
+            <div class="photo">
+              <img src="../images/lecturer_lmh.png" alt="" />
+            </div>
+            <div class="name">刘毛华</div>
+            <p class="intro">项目管理资深专家/剑桥大学国际培训师</p>
+          </div>
+          <div class="lecturer-item">
+            <div class="photo">
+              <img src="../images/lecturer_zbl.png" alt="" />
+            </div>
+            <div class="name">张宝雷</div>
+            <p class="intro">前华为高管，实战型研发管理培训专家</p>
+          </div>
+          <div class="lecturer-item m-0-22">
+            <div class="photo">
+              <img src="../images/lecturer_lcl.png" alt="" />
+            </div>
+            <div class="name">吕春兰</div>
+            <p class="intro">
+              实战谈判专家<br />交大、复旦EMBA最接地气谈判教授
+            </p>
+          </div>
+          <div class="lecturer-item">
+            <div class="photo">
+              <img src="../images/lecturer_yjc.png" alt="" />
+            </div>
+            <div class="name">杨京川</div>
+            <p class="intro">
+              原IBM资深销售管理专家<br />《销售管理策略制定方法论》创立者
+            </p>
+          </div>
+
+          <div class="bar bar-r"><i class="fa fa-angle-right"></i></div>
         </div>
 
         <div class="go-more-lecturers">
@@ -264,92 +265,61 @@
 
       <!-- 睿选优课-好课 -->
       <section class="high-quality-lessons">
-        <div class="container">
-          <div class="title">
-            <h2>睿选优课20年</h2>
-            <hr />
-            <p>
-              科学的培训解决方案，以帮助10000多家企业实现蜕变！<br />
-              必修课程，一站通关！让老板高兴、员工满意的培训课就找睿选优课
-            </p>
-          </div>
-          <div class="content">
+        <div class="title">
+          <h2>睿选优课20年</h2>
+          <hr />
+          <p>
+            科学的培训解决方案，以帮助10000多家企业实现蜕变！<br />
+            必修课程，一站通关！让老板高兴、员工满意的培训课就找睿选优课
+          </p>
+        </div>
+        <div class="content">
+          <div class="container">
             <!-- 按钮组 -->
             <div class="btn-group-box">
               <ul id="recommendedCourseTab" class="nav nav-pills nav-justified">
                 <li role="presentation" class="active">
-                  <a
-                    href="#recommendedCourseTabPane1"
-                    data-more-link="#"
-                    data-more-link-lable="进入选课中心"
-                    >推荐学习</a
-                  >
+                  <a href="#recommendedCourseTabPane1">推荐学习</a>
                 </li>
                 <li role="presentation">
-                  <a
-                    href="#recommendedCourseTabPane2"
-                    data-more-link="#"
-                    data-more-link-lable="查看更多"
-                    >政策热点</a
-                  >
+                  <a href="#recommendedCourseTabPane2">政策热点</a>
                 </li>
                 <li role="presentation">
-                  <a
-                    href="#recommendedCourseTabPane3"
-                    data-more-link="#"
-                    data-more-link-lable="查看更多"
-                    >培训技巧</a
-                  >
+                  <a href="#recommendedCourseTabPane3">培训技巧</a>
                 </li>
                 <li role="presentation">
-                  <a
-                    href="#recommendedCourseTabPane4"
-                    data-more-link="#"
-                    data-more-link-lable="查看更多"
-                    >睿选视角</a
-                  >
+                  <a href="#recommendedCourseTabPane4">睿选视角</a>
                 </li>
                 <li role="presentation">
-                  <a
-                    href="#recommendedCourseTabPane5"
-                    data-more-link="#"
-                    data-more-link-lable="查看更多"
-                    >答疑精选</a
-                  >
+                  <a href="#recommendedCourseTabPane5">答疑精选</a>
                 </li>
               </ul>
             </div>
             <!-- 内容展示 -->
-            <div class="show-info">
-              <div class="clearfix">
-                <!-- 左侧动态面板 -->
-                <div class="tab-c-l tab-content">
-                  <div
-                    class="tab-pane fade in active"
-                    id="recommendedCourseTabPane1"
-                  ></div>
-                  <div class="tab-pane fade" id="recommendedCourseTabPane2">
-                    政策热点
-                  </div>
-                  <div class="tab-pane fade" id="recommendedCourseTabPane3">
-                    培训技巧
-                  </div>
-                  <div class="tab-pane fade" id="recommendedCourseTabPane4">
-                    睿选视角
-                  </div>
-                  <div class="tab-pane fade" id="recommendedCourseTabPane5">
-                    答疑精选
-                  </div>
+            <div class="show-info tab-content">
+              <div
+                class="tab-pane fade in active"
+                id="recommendedCourseTabPane1"
+              >
+                <div class="c"></div>
+                <!-- 进入选课中心 -->
+                <div class="go-select-lesson-center">
+                  <button type="button" class="btn btn-default">
+                    进入选课中心 <i class="fa fa-long-arrow-right"></i>
+                  </button>
                 </div>
-                <!-- 右侧热门网课 -->
-                <div class="tab-c-r"></div>
               </div>
-
-              <!-- 底部查看更多链接 -->
-              <div class="go-select-lesson-center">
-                <button type="button" class="btn btn-default">
-                  进入选课中心 <i class="fa fa-long-arrow-right"></i>
-                </button>
+              <div class="tab-pane fade" id="recommendedCourseTabPane2">
+                政策热点
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane3">
+                培训技巧
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane4">
+                睿选视角
+              </div>
+              <div class="tab-pane fade" id="recommendedCourseTabPane5">
+                答疑精选
               </div>
             </div>
           </div>
@@ -363,28 +333,25 @@
           <hr />
           <p>整合多领域核心资源，打造一站式、全品类、高标准、培训赋能生态</p>
         </div>
-
         <div class="platform-list">
-          <div class="container">
-            <div class="list-item">
-              <img src="../images/platform_01.png" alt="" />
-            </div>
-            <div class="divide"></div>
-            <div class="list-item">
-              <img src="../images/platform_02.png" alt="" />
-            </div>
-            <div class="divide"></div>
-            <div class="list-item">
-              <img src="../images/platform_03.png" alt="" />
-            </div>
-            <div class="divide"></div>
-            <div class="list-item">
-              <img src="../images/platform_04.png" alt="" />
-            </div>
-            <div class="divide"></div>
-            <div class="list-item">
-              <img src="../images/platform_05.png" alt="" />
-            </div>
+          <div class="list-item">
+            <img src="../images/platform_01.png" alt="" />
+          </div>
+          <div class="divide"></div>
+          <div class="list-item">
+            <img src="../images/platform_02.png" alt="" />
+          </div>
+          <div class="divide"></div>
+          <div class="list-item">
+            <img src="../images/platform_03.png" alt="" />
+          </div>
+          <div class="divide"></div>
+          <div class="list-item">
+            <img src="../images/platform_04.png" alt="" />
+          </div>
+          <div class="divide"></div>
+          <div class="list-item">
+            <img src="../images/platform_05.png" alt="" />
           </div>
         </div>
         <div class="go-more-btn">
@@ -396,46 +363,44 @@
 
       <!-- 一站式解决方案 -->
       <section class="one-stop-solution">
-        <div class="container">
-          <div class="title">
-            <h2>睿选优课 为企业组织与人才发展提供一站式解决方案</h2>
-            <hr />
-            <p>打造“数字驱动，价值增长”为方向的全场景培训体系</p>
+        <div class="title">
+          <h2>睿选优课 为企业组织与人才发展提供一站式解决方案</h2>
+          <hr />
+          <p>打造“数字驱动，价值增长”为方向的全场景培训体系</p>
+        </div>
+        <div class="solution-list">
+          <div class="list-item">
+            <img src="../images/one-stop_solution_icon_01.png" alt="" />
+            <span>研发实力</span>
           </div>
-          <div class="solution-list">
-            <div class="list-item">
-              <img src="../images/one-stop_solution_icon_01.png" alt="" />
-              <p>研发实力</p>
-            </div>
-            <div class="list-item">
-              <img src="../images/one-stop_solution_icon_02.png" alt="" />
-              <p>课程体系</p>
-            </div>
-            <div class="list-item">
-              <img src="../images/one-stop_solution_icon_03.png" alt="" />
-              <p>师资团队</p>
-            </div>
-            <div class="list-item">
-              <img src="../images/one-stop_solution_icon_04.png" alt="" />
-              <p>课程驱动</p>
-            </div>
+          <div class="list-item">
+            <img src="../images/one-stop_solution_icon_02.png" alt="" />
+            <span>课程体系</span>
+          </div>
+          <div class="list-item">
+            <img src="../images/one-stop_solution_icon_03.png" alt="" />
+            <span>师资团队</span>
+          </div>
+          <div class="list-item">
+            <img src="../images/one-stop_solution_icon_04.png" alt="" />
+            <span>课程驱动</span>
           </div>
         </div>
       </section>
 
       <!-- 合作伙伴 -->
       <section class="enterprise-partner">
+        <div class="title">
+          <h2>成长见证，他们和睿选优课同行</h2>
+          <hr />
+          <p>20年来，累计服务企业超10000家</p>
+        </div>
+        <div class="btn-box">
+          <button type="button" class="btn btn-default">
+            免费快速获取报价和方案！<i class="fa fa-long-arrow-right"></i>
+          </button>
+        </div>
         <div class="container">
-          <div class="title">
-            <h2>成长见证，他们和睿选优课同行</h2>
-            <hr />
-            <p>20年来，累计服务企业超10000家</p>
-          </div>
-          <div class="btn-box">
-            <button type="button" class="btn btn-default">
-              免费快速获取报价和方案！<i class="fa fa-long-arrow-right"></i>
-            </button>
-          </div>
           <div class="partners">
             <div class="partner-intro">
               <div class="enterprise-logo">
@@ -443,7 +408,7 @@
               </div>
               <h3>上海电气</h3>
               <div class="line"></div>
-              <p class="info txt-ellipsis-4">
+              <p class="info">
                 文案预留处，文案预案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，
               </p>
             </div>
@@ -485,7 +450,7 @@
     <footer id="footer">
       <section class="other-info">
         <div class="container">
-          <div class="other-links">
+          <div class="links">
             <dl>
               <dt>学习平台</dt>
               <dd><a href="#">面授课程</a></dd>
@@ -593,7 +558,7 @@
         <ul class="first-class-list">
           {{set levelChildrenModelList = category.levelChildrenModelList}}
           {{each levelChildrenModelList firstClass idx2 }}
-          <li class="first-class-list-item clearfix">
+          <li class="first-class-list-item">
             <div class="first-class-name">{{firstClass.firstClassName}}</div>
             <div class="second-class-list row {{idx1 == 2 ? 'certify' : ''}}">
               {{set secondClassList = firstClass.secondClassList}} {{each
@@ -626,8 +591,9 @@
         {{/each}}
       </ul>
     </script>
-    <!-- 推荐课程-推荐学习 -->
-    <script id="recommandStudyTmp1" type="text/html">
+    <!-- 推荐课程 -->
+    <script id="recommandStudyTmp" type="text/html">
+      <!-- 推荐课程分类 -->
       {{set categoryList = recommand && recommand.length ? recommand : []}}
       {{set imgList = ['../images/lesson_category_01.png',
       '../images/lesson_category_02.png', '../images/lesson_category_03.png']}}
@@ -643,14 +609,13 @@
           <div class="list-item">
             <p class="line1">{{secondClass}}</p>
             <p class="line2">上海/北京/苏州 <a href="#">立即报名</a></p>
+            <hr />
           </div>
           {{/each}}
         </div>
       </div>
       {{/each}}
-    </script>
-    <!-- 热门网课 -->
-    <script id="recommandStudyHotTmp" type="text/html">
+      <!-- 热门课 -->
       <div class="hot-lessons">
         <h3>热门网课</h3>
         <!-- 热门课程列表 -->
@@ -669,7 +634,7 @@
                   src="{{$value.imgUrl || '../images/lesson_category_01.png'}}"
                   alt=""
                 />
-                <p class="txt-ellipsis">{{$value.productName || '-'}}</p>
+                <p>{{$value.productName || '-'}}</p>
               </li>
               {{/each}}
             </div>

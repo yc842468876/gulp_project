@@ -11,6 +11,12 @@ function bindEvents() {
   $('#recommendedCourseTab a').on('click', function (e) {
     e.preventDefault();
     $(this).tab('show');
+    // 更改底部查看更多链接地址及文本
+    const { moreLinkLable, moreLink } = $(this).data();
+    $('.go-select-lesson-center .btn')
+      .attr('href', moreLink)
+      .html(`${moreLinkLable} <i class="fa fa-long-arrow-right"></i>`);
+    console.log(moreLinkLable, moreLink);
   });
 
   // 推荐课程--热门课程分页
@@ -51,7 +57,7 @@ function getSelectProductTag() {
     const { code, data } = res || {};
     if (code == 200) {
       // console.log(data, 'selectProduct');
-      $('#header .select-lesson-center .c').html(
+      $('#header .select-lesson-center .link-item-mask').html(
         template('selectProductCenterTmp', {
           ...data,
         })
@@ -68,8 +74,14 @@ function getRecommandStudy() {
     const { code, data } = res || {};
     if (code == 200) {
       // console.log(data, 'recommandStudy');
-      $('#recommendedCourseTabPane1 .c').html(
-        template('recommandStudyTmp', {
+      $('#recommendedCourseTabPane1').html(
+        template('recommandStudyTmp1', {
+          ...data,
+        })
+      );
+
+      $('.high-quality-lessons .tab-c-r').html(
+        template('recommandStudyHotTmp', {
           ...data,
         })
       );

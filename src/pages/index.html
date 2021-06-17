@@ -45,7 +45,7 @@
             </li>
             <li class="divider"></li>
             <li class="link-item select-lesson-center">
-              <a href="#">选课中心</a>
+              <a href="/pages/lesson.html">选课中心</a>
               <div class="link-item-mask"></div>
             </li>
             <li class="divider"></li>
@@ -64,7 +64,7 @@
           <div class="input-group search-inp">
             <input
               type="text"
-              class="form-control inp"
+              class="form-control"
               placeholder="输入想搜索的关键词"
             />
             <span class="input-group-btn">
@@ -280,6 +280,7 @@
                 <li role="presentation" class="active">
                   <a
                     href="#recommendedCourseTabPane1"
+                    data-toggle="pill"
                     data-more-link="#"
                     data-more-link-lable="进入选课中心"
                     >推荐学习</a
@@ -288,6 +289,7 @@
                 <li role="presentation">
                   <a
                     href="#recommendedCourseTabPane2"
+                    data-toggle="pill"
                     data-more-link="#"
                     data-more-link-lable="查看更多"
                     >政策热点</a
@@ -296,6 +298,7 @@
                 <li role="presentation">
                   <a
                     href="#recommendedCourseTabPane3"
+                    data-toggle="pill"
                     data-more-link="#"
                     data-more-link-lable="查看更多"
                     >培训技巧</a
@@ -304,6 +307,7 @@
                 <li role="presentation">
                   <a
                     href="#recommendedCourseTabPane4"
+                    data-toggle="pill"
                     data-more-link="#"
                     data-more-link-lable="查看更多"
                     >睿选视角</a
@@ -312,6 +316,7 @@
                 <li role="presentation">
                   <a
                     href="#recommendedCourseTabPane5"
+                    data-toggle="pill"
                     data-more-link="#"
                     data-more-link-lable="查看更多"
                     >答疑精选</a
@@ -682,10 +687,10 @@
           {{if pageList[1].length > 0}}
           <ul class="nav nav-pills nav-justified">
             <li role="presentation" class="active">
-              <a href="#hotLessonPage1">1</a>
+              <a href="#hotLessonPage1" data-toggle="pill">1</a>
             </li>
             <li role="presentation">
-              <a href="#hotLessonPage2">2</a>
+              <a href="#hotLessonPage2" data-toggle="pill">2</a>
             </li>
           </ul>
           {{/if}}

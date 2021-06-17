@@ -1,0 +1,429 @@
+body {
+  background-color: #f0f0f0;
+}
+
+// ----------------------- 页面内容部分样式-START ---------------------------
+
+// 主图
+.main-pic {
+  .box {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// 热门好课
+.hot-good-lesson {
+  & > h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 17px;
+    padding-top: 45px;
+  }
+  .recommend-lesson-list {
+    padding-top: 38px;
+    padding-bottom: 84px;
+    overflow: hidden;
+    margin-right: -24px;
+    .recommend-lesson-item {
+      float: left;
+      width: 282px;
+      margin-right: 24px;
+      .img {
+        width: 282px;
+        height: 160px;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .name {
+        font-size: 16px;
+        line-height: 24px;
+        color: #333;
+        margin-top: 10px;
+      }
+      .info {
+        margin-top: 5px;
+        overflow: hidden;
+        .price {
+          float: left;
+          font-size: 16px;
+          line-height: 24px;
+          color: #df020e;
+        }
+        .detail {
+          float: right;
+          width: 72px;
+          height: 24px;
+          line-height: 24px;
+          border-radius: 12px;
+          background: #e00011;
+          text-align: center;
+          color: #fff;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+// 搜索课程
+.search-lessons {
+  // 搜索类型
+  .search-type {
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    .nav {
+      display: block;
+      width: 616px;
+      margin: 0 auto;
+      & > li {
+        a {
+          font-size: 20px;
+          line-height: 20px;
+          position: relative;
+        }
+        &.active {
+          a {
+            color: #000;
+            background-color: transparent;
+            &::after {
+              position: absolute;
+              content: '';
+              height: 2px;
+              display: inline-block;
+              width: 100%;
+              background-color: #e00011;
+              left: 0;
+              bottom: -2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  // 筛选条件
+  .filter-condition {
+    .form-group {
+      margin: 30px 0;
+      user-select: none;
+      .filter-label {
+        width: 75px;
+        height: 24px;
+        line-height: 24px;
+        float: left;
+        line-height: 24px;
+        color: #585858;
+      }
+      .all {
+        float: left;
+        width: 76px;
+        text-align: center;
+        color: #585858;
+        margin-right: 6px;
+        cursor: pointer;
+        border-radius: 3px;
+        &.active {
+          background-color: #848485;
+          color: #fff;
+        }
+      }
+      .tags {
+        float: left;
+        width: 792px;
+        overflow: hidden;
+        margin-bottom: -6px;
+        &.h24 {
+          height: 24px;
+        }
+        .tag {
+          float: left;
+          text-align: center;
+          padding: 0 16px;
+          cursor: pointer;
+          border-radius: 3px;
+
+          margin-right: 6px;
+          margin-bottom: 6px;
+          &.active {
+            background-color: #848485;
+            color: #fff;
+          }
+        }
+      }
+      .more {
+        float: left;
+        margin-left: 20px;
+        font-size: 12px;
+        color: #999;
+        cursor: pointer;
+      }
+    }
+  }
+  .content {
+    .c-l {
+      float: left;
+      width: 950px;
+      .header {
+        height: 51px;
+        border-bottom: 1px solid #ddd;
+        background-color: #fff;
+        .txt {
+          float: left;
+          width: 80px;
+          height: 50px;
+          line-height: 50px;
+          color: #fff;
+          background-color: #e00011;
+          text-align: center;
+        }
+        .search-inp {
+          width: 238px;
+          float: right;
+          margin-right: 20px;
+          margin-top: 8px;
+          .btn {
+            background-color: #9a9a9a;
+            color: #fff;
+            &:active {
+              background-color: #e70114;
+              border-color: #e70114;
+            }
+          }
+        }
+      }
+      .search-content {
+        // 课程列表
+        .course-list {
+          .course-item {
+            background-color: #fff;
+            padding: 24px 16px;
+            margin-bottom: 26px;
+            .info-l {
+              float: left;
+              width: 204px;
+              height: 114px;
+              background-color: gray;
+              & > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .info-r {
+              float: left;
+              width: 664px;
+              margin-left: 18px;
+              & > h3 {
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                line-height: 24px;
+              }
+              .c {
+                margin-top: 16px;
+                .course-feature {
+                  width: 330px;
+                  float: left;
+                }
+                .fit-object {
+                  width: 276px;
+                  float: right;
+                }
+                .course-feature,
+                .fit-object {
+                  & > h4 {
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #666;
+                    letter-spacing: 2px;
+                    position: relative;
+                    padding-left: 10px;
+                    &::before {
+                      content: '';
+                      height: 20px;
+                      width: 2px;
+                      background: #e00011;
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                    }
+                  }
+                  & > p {
+                    font-size: 12px;
+                    line-height: 18px;
+                    color: #999;
+                    letter-spacing: 2px;
+                    padding-left: 10px;
+                  }
+                }
+              }
+            }
+            table {
+              width: 100%;
+              margin-top: 20px;
+              tr {
+                &.hide-part {
+                  display: none;
+                }
+                &:hover {
+                  background-color: #fffcee;
+                }
+                th {
+                  height: 30px;
+                  background: #f7f7f7;
+                  line-height: 30px;
+                  font-size: 14px;
+                  color: #999;
+                  &:first-child {
+                    text-align: center;
+                  }
+                }
+                td {
+                  height: 50px;
+                  line-height: 50px;
+                  font-size: 14px;
+                  color: #333;
+                  border-bottom: 1px solid #f2f2f2;
+                  &:first-child {
+                    text-align: center;
+                  }
+                  a {
+                    display: block;
+                    width: 60px;
+                    height: 24px;
+                    line-height: 24px;
+                    border-radius: 3px;
+                    background: #e00011;
+                    text-align: center;
+                    font-size: 14px;
+                    color: #fff;
+                  }
+                }
+              }
+            }
+            .addTr {
+              width: 110px;
+              height: 26px;
+              line-height: 26px;
+              margin: 0 auto;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid #999;
+              color: #999;
+              border-radius: 13px;
+              margin-top: 10px;
+            }
+          }
+        }
+        // 在线课列表
+        .online-course-list {
+          padding: 32px 25px;
+          .course-item {
+            float: left;
+            width: 266px;
+            margin: 0 17px 24px;
+            position: relative;
+            &.overdue::after {
+              position: absolute;
+              z-index: 333;
+              width: 100%;
+              height: 100%;
+              opacity: 0.6;
+              content: '已过期';
+              top: 0px;
+              left: 0px;
+              font-size: 20px;
+              color: rgb(255, 255, 255);
+              line-height: 229px;
+              text-align: center;
+              background: rgb(0, 0, 0);
+            }
+            .course-pic {
+              width: 266px;
+              height: 150px;
+              & > img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .course-name {
+              margin-top: 15px;
+              font-size: 16px;
+              line-height: 24px;
+              color: #333;
+              letter-spacing: 1.2px;
+            }
+            .course-time {
+              font-size: 14px;
+              line-height: 24px;
+              color: #999;
+            }
+          }
+        }
+        .course-paginator {
+          text-align: center;
+          .pagination {
+            & > li {
+              float: left;
+              margin: 0 2px;
+              a {
+                display: inline-block;
+                width: 66px;
+                height: 40px;
+                text-align: center;
+                color: #000;
+                font-size: 18px;
+                line-height: 38px;
+                border-radius: 4px;
+                padding: 0;
+                user-select: none;
+              }
+              &.active {
+                a {
+                  color: #fff;
+                  background-color: #e00011;
+                  border-color: #ddd;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .c-r {
+      float: right;
+      width: 229px;
+      & > h3 {
+        font-size: 20px;
+        line-height: 24px;
+        color: #333;
+        border-bottom: 1px solid #d6d6d6;
+        padding-bottom: 10px;
+        margin-bottom: 24px;
+      }
+      .hot-course {
+        .hot-course-item {
+          margin-bottom: 40px;
+          .course-pic {
+            width: 229px;
+            height: 112px;
+            & > img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .course-name {
+            line-height: 22px;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------- 页面内容部分样式-END ---------------------------

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <!-- 引入 bootstrap 样式 -->
     <link rel="stylesheet" href="../lib/bootstrap@3/css/bootstrap.min.css" />
     <!-- 引入字体图标 fontAwesome -->
@@ -14,9 +13,11 @@
       href="../lib/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <!-- 引入全局样式 -->
-    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../sass/global.css" />
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="../sass/common.css" />
     <!-- 引入界面样式 -->
-    <link rel="stylesheet" href="../sass/index.css" />
+    <link rel="stylesheet" href="../sass/lesson.css" />
 
     <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
     <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
@@ -29,52 +30,48 @@
     <!-- 头部导航部分 -->
     <header id="header">
       <div class="container">
-        <div class="header-nav">
-          <!-- 左侧导航 -->
-          <div class="left">
-            <!-- logo -->
-            <div class="logo">
-              <a href="/pages/index.html"
-                ><img src="../images/logo.png" alt="logo"
-              /></a>
-            </div>
-            <!-- nav -->
-            <nav class="links">
-              <ul class="link-list">
-                <li class="link-item active">
-                  <a href="/pages/index.html">首页</a>
-                </li>
-                <li class="divider"></li>
-                <li class="link-item select-lesson-center">
-                  <a href="#">选课中心</a>
-                  <div class="c"></div>
-                </li>
-                <li class="divider"></li>
-                <li class="link-item"><a href="#">研究中心</a></li>
-                <li class="divider"></li>
-                <li class="link-item"><a href="#">睿选活动</a></li>
-                <li class="divider"></li>
-                <li class="link-item"><a href="#">干货资讯</a></li>
-                <li class="divider"></li>
-                <li class="link-item"><a href="#">关于睿选优课</a></li>
-              </ul>
-            </nav>
+        <!-- 左侧导航 -->
+        <div class="left-nav">
+          <!-- logo -->
+          <div class="logo">
+            <a href="/pages/index.html"
+              ><img src="../images/logo.png" alt="logo"
+            /></a>
           </div>
-          <!-- 右侧搜索 -->
-          <div class="right">
-            <div class="phone-number"><span>400- 921- 0939</span></div>
-            <div class="input-group search-inp">
-              <input
-                type="text"
-                class="form-control inp"
-                placeholder="输入想搜索的关键词"
-              />
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
+          <!-- nav -->
+          <ul class="link-list">
+            <li class="link-item">
+              <a href="/pages/index.html">首页</a>
+            </li>
+            <li class="divider"></li>
+            <li class="link-item active select-lesson-center">
+              <a href="/pages/lesson.html">选课中心</a>
+              <div class="link-item-mask"></div>
+            </li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">研究中心</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">睿选活动</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">干货资讯</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">关于睿选优课</a></li>
+          </ul>
+        </div>
+        <!-- 右侧搜索 -->
+        <div class="right-nav">
+          <div class="phone-number"><span>400- 921- 0939</span></div>
+          <div class="input-group search-inp">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="输入想搜索的关键词"
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
           </div>
         </div>
       </div>
@@ -91,366 +88,456 @@
         </div>
       </section>
 
-      <!-- 方案标签 -->
-      <section class="project-tags">
-        <div class="container">
-          <ul class="tag-list">
-            <li class="list-item">
+      <div class="container lesson-c">
+        <!-- 热门好课 -->
+        <section class="hot-good-lesson">
+          <h2>热门好课</h2>
+          <ul class="recommend-lesson-list">
+            <li class="recommend-lesson-item">
               <div class="img">
-                <img src="../images/project_tag_01.png" alt="project_tag_01" />
+                <a href="#">
+                  <img src="../images/lesson_category_02.png" alt="" />
+                </a>
               </div>
-              <div class="desc">
-                <h3>阿尔法新客户超值体验方案</h3>
-                <p>领价值6698元精品课</p>
+              <div class="name txt-ellipsis">
+                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
+              </div>
+              <div class="info">
+                <span class="price">￥5800</span>
+                <a href="#" class="detail">详情</a>
               </div>
             </li>
-            <li class="list-item">
+            <li class="recommend-lesson-item">
               <div class="img">
-                <img src="../images/project_tag_02.png" alt="project_tag_02" />
+                <a href="#">
+                  <img src="../images/lesson_category_02.png" alt="" />
+                </a>
               </div>
-              <div class="desc">
-                <h3>赢领HR研习社</h3>
-                <p>
-                  HR学习社群（一站式培训平台：400+线下公开课130+线上精品课）
-                </p>
+              <div class="name txt-ellipsis">
+                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
+              </div>
+              <div class="info">
+                <span class="price">￥5800</span>
+                <a href="#" class="detail">详情</a>
               </div>
             </li>
-            <li class="list-item">
+            <li class="recommend-lesson-item">
               <div class="img">
-                <img src="../images/project_tag_03.png" alt="project_tag_03" />
+                <a href="#">
+                  <img src="../images/lesson_category_02.png" alt="" />
+                </a>
               </div>
-              <div class="desc">
-                <h3>数字化转型解决方案</h3>
-                <p>深挖企业增长潜力，打造数字驱动，培养复合型高层次人才</p>
+              <div class="name txt-ellipsis">
+                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
+              </div>
+              <div class="info">
+                <span class="price">￥5800</span>
+                <a href="#" class="detail">详情</a>
+              </div>
+            </li>
+            <li class="recommend-lesson-item">
+              <div class="img">
+                <a href="#">
+                  <img src="../images/lesson_category_02.png" alt="" />
+                </a>
+              </div>
+              <div class="name txt-ellipsis">
+                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
+              </div>
+              <div class="info">
+                <span class="price">￥5800</span>
+                <a href="#" class="detail">详情</a>
               </div>
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <!-- 睿选优课体系 -->
-      <section class="course-system">
-        <div class="container">
-          <div class="title">
-            <h2>睿选优课课程体系</h2>
-            <hr />
-            <p>优质课程一站选择 助推企业稳健增长</p>
-          </div>
-          <div class="content">
-            <ul class="type-list">
-              <li class="list-item">
-                <div class="info">
-                  <img
-                    src="../images/lesson_system_type_01.png"
-                    alt="lesson_system_type_01"
-                  />
-                  <div class="mask">
-                    <h3>线下课程</h3>
-                    <hr />
-                    <button type="button" class="btn btn-default">
-                      查看详情
-                    </button>
-                  </div>
-                </div>
-                <p class="desc">
-                  什么是一站式培训平台？睿选优课，行业+职位全覆盖，理论+实战全囊括，让老板省心、员工称心的学习平台
-                </p>
+        <!-- 搜索课程 -->
+        <section class="search-lessons">
+          <!-- 课程类型 -->
+          <div class="search-type">
+            <ul
+              id="lessonType"
+              class="nav nav-pills nav-justified"
+              role="pilllist"
+            >
+              <li role="presentation" class="active">
+                <a
+                  href="#type1"
+                  aria-controls="generalLesson"
+                  role="tab"
+                  data-toggle="tab"
+                  data-type="generalLesson"
+                  >综合</a
+                >
               </li>
-
-              <li class="list-item">
-                <div class="info">
-                  <img
-                    src="../images/lesson_system_type_02.png"
-                    alt="lesson_system_type_02"
-                  />
-                  <div class="mask">
-                    <h3>在线课程</h3>
-                    <hr />
-                    <button type="button" class="btn btn-default">
-                      查看详情
-                    </button>
-                  </div>
-                </div>
-                <p class="desc">
-                  目前有130+门在线课程，覆盖“9大模块，3大层级”，提供全景式培训课程
-                </p>
+              <li role="presentation">
+                <a
+                  href="#type2"
+                  aria-controls="faceLesson"
+                  role="tab"
+                  data-toggle="tab"
+                  data-type="faceLesson"
+                  >线下课程</a
+                >
               </li>
-              <li class="list-item">
-                <div class="info">
-                  <img
-                    src="../images/lesson_system_type_03.png"
-                    alt="lesson_system_type_03"
-                  />
-                  <div class="mask">
-                    <h3>职业认证</h3>
-                    <hr />
-                    <button type="button" class="btn btn-default">
-                      查看详情
-                    </button>
-                  </div>
-                </div>
-                <p class="desc">
-                  为企业、政府提供系统、全面、落地的组织学习与能力重构解决方案
-                </p>
+              <li role="presentation">
+                <a
+                  href="#type3"
+                  aria-controls="onlineLesson"
+                  role="tab"
+                  data-toggle="tab"
+                  data-type="onlineLesson"
+                  >在线课程</a
+                >
+              </li>
+              <li role="presentation">
+                <a
+                  href="#type4"
+                  aria-controls="professionalCertify"
+                  role="tab"
+                  data-toggle="tab"
+                  data-type="professionalCertify"
+                  >职业认证</a
+                >
               </li>
             </ul>
           </div>
-          <div class="go-center-btn">
-            <button type="button" class="btn btn-default">
-              进入选课中心 <i class="fa fa-long-arrow-right"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 精英讲师 -->
-      <section class="elite-lecturer">
-        <div class="title">
-          <h2>精英讲师传授实战解决方案 助力企业因制变、敏捷升级</h2>
-          <hr />
-          <p>整合多领域核心资源，打造一站式、全品类、高标准的培训赋能生态</p>
-        </div>
-        <div class="lecturer-list">
-          <div class="bar bar-l"><i class="fa fa-angle-left"></i></div>
-
-          <div class="lecturer-item">
-            <div class="photo">
-              <img src="../images/lecturer_tws.png" alt="" />
+          <!-- 筛选条件 -->
+          <form class="filter-condition">
+            <!-- 开课时间 -->
+            <div class="form-group clearfix" id="filterMonth">
+              <div class="filter-label">开课时间：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags">
+                <ul class="clearfix">
+                  <li class="tag" data-tag="1">1月</li>
+                  <li class="tag" data-tag="2">2月</li>
+                  <li class="tag" data-tag="3">3月</li>
+                  <li class="tag" data-tag="4">4月</li>
+                  <li class="tag" data-tag="5">5月</li>
+                  <li class="tag" data-tag="6">6月</li>
+                  <li class="tag" data-tag="7">7月</li>
+                  <li class="tag" data-tag="8">8月</li>
+                  <li class="tag" data-tag="9">9月</li>
+                  <li class="tag" data-tag="10">10月</li>
+                  <li class="tag" data-tag="11">11月</li>
+                  <li class="tag" data-tag="12">12月</li>
+                </ul>
+              </div>
             </div>
-            <div class="name">陶维胜</div>
-            <p class="intro">原富士康/好孩子高管，质量咨询培训专家</p>
-          </div>
-          <div class="lecturer-item m-0-22">
-            <div class="photo">
-              <img src="../images/lecturer_lmh.png" alt="" />
+            <!-- 课程类型 -->
+            <div class="form-group clearfix" id="courseCategory"></div>
+            <!-- 专业方向 -->
+            <div class="form-group clearfix" id="productDirection"></div>
+            <!-- 职业认证 -->
+            <div class="form-group clearfix" id="professionalCertify"></div>
+            <!-- 开课城市 -->
+            <div class="form-group clearfix" id="filterCity">
+              <div class="filter-label">上课城市：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags">
+                <ul class="clearfix">
+                  <li class="tag" data-tag="上海">上海</li>
+                  <li class="tag" data-tag="苏州">苏州</li>
+                  <li class="tag" data-tag="北京">北京</li>
+                  <li class="tag" data-tag="天津">天津</li>
+                  <li class="tag" data-tag="广州">广州</li>
+                  <li class="tag" data-tag="深圳">深圳</li>
+                  <li class="tag" data-tag="杭州">杭州</li>
+                  <li class="tag" data-tag="南京">南京</li>
+                  <li class="tag" data-tag="昆山">昆山</li>
+                  <li class="tag" data-tag="无锡">无锡</li>
+                  <li class="tag" data-tag="宁波">宁波</li>
+                  <li class="tag" data-tag="其他">其他</li>
+                </ul>
+              </div>
             </div>
-            <div class="name">刘毛华</div>
-            <p class="intro">项目管理资深专家/剑桥大学国际培训师</p>
-          </div>
-          <div class="lecturer-item">
-            <div class="photo">
-              <img src="../images/lecturer_zbl.png" alt="" />
+            <!-- 价格 -->
+            <div class="form-group clearfix" id="filterPrice">
+              <div class="filter-label">价格：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags">
+                <ul class="clearfix">
+                  <li class="tag" data-tag="0,5000">&lt;5000元</li>
+                  <li class="tag" data-tag="5000,10000">5000-10000元</li>
+                  <li class="tag" data-tag="10000,">10000元以上</li>
+                </ul>
+              </div>
             </div>
-            <div class="name">张宝雷</div>
-            <p class="intro">前华为高管，实战型研发管理培训专家</p>
-          </div>
-          <div class="lecturer-item m-0-22">
-            <div class="photo">
-              <img src="../images/lecturer_lcl.png" alt="" />
+          </form>
+          <!-- 搜索结果 -->
+          <div class="content clearfix">
+            <div class="c-l">
+              <div class="header">
+                <div class="txt">全部</div>
+                <div class="input-group search-inp">
+                  <input
+                    type="text"
+                    class="form-control inp"
+                    placeholder="输入想搜索的关键词"
+                  />
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="search-content">
+                <!-- 课程列表 -->
+                <ul class="course-list" id="courseList">
+                  <li class="course-item">
+                    <div class="info clearfix">
+                      <div class="info-l">
+                        <img src="" alt="" />
+                      </div>
+                      <div class="info-r">
+                        <h3>Power BI经营分析实战营</h3>
+                        <div class="c clearfix">
+                          <div class="course-feature">
+                            <h4>课程特色：</h4>
+                            <p>
+                              打破财务思维，掌握、使用经营分析方法，准确把握企业经营状况，从企业战略出发，与商业模式相结合，构建业财融合的分析思路，将
+                              Excel 与 Power BI
+                              相结合，帮助财务提升经营分析效率与结果，精准直击企业经营数据，提高财务人汇报技巧，有效提供决策信息。
+                            </p>
+                          </div>
+                          <div class="fit-object">
+                            <h4>适合对象：</h4>
+                            <p>
+                              财务分析师 (包含 FP&A、财务 BP
+                              等)、管理会计、经营分析等相关职能，财务总监、财务经理、财务主管等财务管理层
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 开课时间表 -->
+                    <table>
+                      <tr>
+                        <th>开课时间</th>
+                        <th>地点</th>
+                        <th>价格</th>
+                        <th></th>
+                      </tr>
+                      <tr>
+                        <td>2021.06.19 至 2021.06.20</td>
+                        <td>深圳</td>
+                        <td>￥3000/人</td>
+                        <td><a>报名</a></td>
+                      </tr>
+                      <tr>
+                        <td>2021.06.19 至 2021.06.20</td>
+                        <td>深圳</td>
+                        <td>￥3000/人</td>
+                        <td><a>报名</a></td>
+                      </tr>
+                      <tr>
+                        <td>2021.06.19 至 2021.06.20</td>
+                        <td>深圳</td>
+                        <td>￥3000/人</td>
+                        <td><a>报名</a></td>
+                      </tr>
+                      <tr class="hide-part">
+                        <td>2021.06.19 至 2021.06.20</td>
+                        <td>深圳</td>
+                        <td>￥3000/人</td>
+                        <td><a>报名</a></td>
+                      </tr>
+                      <tr class="hide-part">
+                        <td>2021.06.19 至 2021.06.20</td>
+                        <td>深圳</td>
+                        <td>￥3000/人</td>
+                        <td><a>报名</a></td>
+                      </tr>
+                    </table>
+                    <div class="addTr">
+                      展开更多&nbsp;<i class="fa fa-angle-down"></i>
+                    </div>
+                  </li>
+                </ul>
+                <!-- 在线课列表 -->
+                <ul class="online-course-list clearfix" style="display: none">
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item overdue">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item overdue">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                  <li class="course-item">
+                    <a>
+                      <div class="course-pic">
+                        <img src="../images/lesson_category_03.png" alt="" />
+                      </div>
+                      <p class="course-name txt-ellipsis">
+                        一般纳税人全盘账复盘
+                      </p>
+                      <p class="course-time">2021年06月19日 19:00</p>
+                    </a>
+                  </li>
+                </ul>
+                <!-- 分页 -->
+                <div class="course-paginator">
+                  <ul id="coursePaginator"></ul>
+                </div>
+              </div>
             </div>
-            <div class="name">吕春兰</div>
-            <p class="intro">
-              实战谈判专家<br />交大、复旦EMBA最接地气谈判教授
-            </p>
-          </div>
-          <div class="lecturer-item">
-            <div class="photo">
-              <img src="../images/lecturer_yjc.png" alt="" />
-            </div>
-            <div class="name">杨京川</div>
-            <p class="intro">
-              原IBM资深销售管理专家<br />《销售管理策略制定方法论》创立者
-            </p>
-          </div>
-
-          <div class="bar bar-r"><i class="fa fa-angle-right"></i></div>
-        </div>
-
-        <div class="go-more-lecturers">
-          <button type="button" class="btn btn-default">
-            了解更多师资 <i class="fa fa-long-arrow-right"></i>
-          </button>
-        </div>
-      </section>
-
-      <!-- 睿选优课-好课 -->
-      <section class="high-quality-lessons">
-        <div class="title">
-          <h2>睿选优课20年</h2>
-          <hr />
-          <p>
-            科学的培训解决方案，以帮助10000多家企业实现蜕变！<br />
-            必修课程，一站通关！让老板高兴、员工满意的培训课就找睿选优课
-          </p>
-        </div>
-        <div class="content">
-          <div class="container">
-            <!-- 按钮组 -->
-            <div class="btn-group-box">
-              <ul id="recommendedCourseTab" class="nav nav-pills nav-justified">
-                <li role="presentation" class="active">
-                  <a href="#recommendedCourseTabPane1">推荐学习</a>
+            <!-- 热门网课 -->
+            <div class="c-r">
+              <h3>畅销网课</h3>
+              <ul class="hot-course">
+                <li class="hot-course-item">
+                  <a>
+                    <div class="course-pic">
+                      <img src="../images/lesson_category_03.png" alt="" />
+                    </div>
+                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
+                  </a>
                 </li>
-                <li role="presentation">
-                  <a href="#recommendedCourseTabPane2">政策热点</a>
+                <li class="hot-course-item">
+                  <a>
+                    <div class="course-pic">
+                      <img src="../images/lesson_category_03.png" alt="" />
+                    </div>
+                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
+                  </a>
                 </li>
-                <li role="presentation">
-                  <a href="#recommendedCourseTabPane3">培训技巧</a>
-                </li>
-                <li role="presentation">
-                  <a href="#recommendedCourseTabPane4">睿选视角</a>
-                </li>
-                <li role="presentation">
-                  <a href="#recommendedCourseTabPane5">答疑精选</a>
+                <li class="hot-course-item">
+                  <a>
+                    <div class="course-pic">
+                      <img src="../images/lesson_category_03.png" alt="" />
+                    </div>
+                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
+                  </a>
                 </li>
               </ul>
             </div>
-            <!-- 内容展示 -->
-            <div class="show-info tab-content">
-              <div
-                class="tab-pane fade in active"
-                id="recommendedCourseTabPane1"
-              >
-                <div class="c"></div>
-                <!-- 进入选课中心 -->
-                <div class="go-select-lesson-center">
-                  <button type="button" class="btn btn-default">
-                    进入选课中心 <i class="fa fa-long-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="recommendedCourseTabPane2">
-                政策热点
-              </div>
-              <div class="tab-pane fade" id="recommendedCourseTabPane3">
-                培训技巧
-              </div>
-              <div class="tab-pane fade" id="recommendedCourseTabPane4">
-                睿选视角
-              </div>
-              <div class="tab-pane fade" id="recommendedCourseTabPane5">
-                答疑精选
-              </div>
-            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- 学习平台 -->
-      <section class="study-platform">
-        <div class="title">
-          <h2>睿选优课 一站式学习平台</h2>
-          <hr />
-          <p>整合多领域核心资源，打造一站式、全品类、高标准、培训赋能生态</p>
-        </div>
-        <div class="platform-list">
-          <div class="list-item">
-            <img src="../images/platform_01.png" alt="" />
-          </div>
-          <div class="divide"></div>
-          <div class="list-item">
-            <img src="../images/platform_02.png" alt="" />
-          </div>
-          <div class="divide"></div>
-          <div class="list-item">
-            <img src="../images/platform_03.png" alt="" />
-          </div>
-          <div class="divide"></div>
-          <div class="list-item">
-            <img src="../images/platform_04.png" alt="" />
-          </div>
-          <div class="divide"></div>
-          <div class="list-item">
-            <img src="../images/platform_05.png" alt="" />
-          </div>
-        </div>
-        <div class="go-more-btn">
-          <button type="button" class="btn btn-default">
-            查看更多 <i class="fa fa-long-arrow-right"></i>
-          </button>
-        </div>
-      </section>
-
-      <!-- 一站式解决方案 -->
-      <section class="one-stop-solution">
-        <div class="title">
-          <h2>睿选优课 为企业组织与人才发展提供一站式解决方案</h2>
-          <hr />
-          <p>打造“数字驱动，价值增长”为方向的全场景培训体系</p>
-        </div>
-        <div class="solution-list">
-          <div class="list-item">
-            <img src="../images/one-stop_solution_icon_01.png" alt="" />
-            <span>研发实力</span>
-          </div>
-          <div class="list-item">
-            <img src="../images/one-stop_solution_icon_02.png" alt="" />
-            <span>课程体系</span>
-          </div>
-          <div class="list-item">
-            <img src="../images/one-stop_solution_icon_03.png" alt="" />
-            <span>师资团队</span>
-          </div>
-          <div class="list-item">
-            <img src="../images/one-stop_solution_icon_04.png" alt="" />
-            <span>课程驱动</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 合作伙伴 -->
-      <section class="enterprise-partner">
-        <div class="title">
-          <h2>成长见证，他们和睿选优课同行</h2>
-          <hr />
-          <p>20年来，累计服务企业超10000家</p>
-        </div>
-        <div class="btn-box">
-          <button type="button" class="btn btn-default">
-            免费快速获取报价和方案！<i class="fa fa-long-arrow-right"></i>
-          </button>
-        </div>
-        <div class="container">
-          <div class="partners">
-            <div class="partner-intro">
-              <div class="enterprise-logo">
-                <img src="../images/enterprise_partner_00.png" alt="" />
-              </div>
-              <h3>上海电气</h3>
-              <div class="line"></div>
-              <p class="info">
-                文案预留处，文案预案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，文案预留处，
-              </p>
-            </div>
-            <div class="partner-list">
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_01.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_02.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_03.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_04.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_05.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_06.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_07.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_08.png" alt="" />
-              </div>
-              <div class="partner-item">
-                <img src="../images/enterprise_partner_09.png" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <!-- 页脚 -->
     <footer id="footer">
       <section class="other-info">
         <div class="container">
-          <div class="links">
+          <div class="other-links">
             <dl>
               <dt>学习平台</dt>
               <dd><a href="#">面授课程</a></dd>
@@ -558,7 +645,7 @@
         <ul class="first-class-list">
           {{set levelChildrenModelList = category.levelChildrenModelList}}
           {{each levelChildrenModelList firstClass idx2 }}
-          <li class="first-class-list-item">
+          <li class="first-class-list-item clearfix">
             <div class="first-class-name">{{firstClass.firstClassName}}</div>
             <div class="second-class-list row {{idx1 == 2 ? 'certify' : ''}}">
               {{set secondClassList = firstClass.secondClassList}} {{each
@@ -591,71 +678,65 @@
         {{/each}}
       </ul>
     </script>
-    <!-- 推荐课程 -->
-    <script id="recommandStudyTmp" type="text/html">
-      <!-- 推荐课程分类 -->
-      {{set categoryList = recommand && recommand.length ? recommand : []}}
-      {{set imgList = ['../images/lesson_category_01.png',
-      '../images/lesson_category_02.png', '../images/lesson_category_03.png']}}
-      {{each categoryList category idx1}}
-      <div class="category">
-        <div class="tit">
-          <img src="{{imgList[idx1] || ''}}" alt="" />
-          <p>{{category.firstClassName || '-'}}</p>
-        </div>
-        <div class="lesson-list">
-          {{set secondClassList = category.secondClassList}} {{each
-          secondClassList secondClass idx2}}
-          <div class="list-item">
-            <p class="line1">{{secondClass}}</p>
-            <p class="line2">上海/北京/苏州 <a href="#">立即报名</a></p>
-            <hr />
-          </div>
-          {{/each}}
-        </div>
-      </div>
-      {{/each}}
-      <!-- 热门课 -->
-      <div class="hot-lessons">
-        <h3>热门网课</h3>
-        <!-- 热门课程列表 -->
-        {{set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
-        []}} {{set pageList = [hotList.slice(0, 3), hotList.slice(3, 6)]}}
-        <ul class="hot-lesson-list">
-          <div class="tab-content">
-            {{each pageList page idx1}}
-            <div
-              class="{{idx1 == 0 ? 'tab-pane fade in active' : 'tab-pane fade'}}"
-              id="{{idx1 == 0 ? 'hotLessonPage1' : 'hotLessonPage2'}}"
-            >
-              {{each page}}
-              <li class="list-item">
-                <img
-                  src="{{$value.imgUrl || '../images/lesson_category_01.png'}}"
-                  alt=""
-                />
-                <p>{{$value.productName || '-'}}</p>
-              </li>
-              {{/each}}
-            </div>
-            {{/each}}
-          </div>
+    <!-- 课程类别 -->
+    <script id="courseCategoryTmp" type="text/html">
+      <div class="filter-label">课程类别：</div>
+      <div class="active all tag" data-tag="all">全部</div>
+      <div class="tags h24">
+        <ul class="clearfix">
+          <li class="tag" data-tag="1">1月</li>
+          <li class="tag" data-tag="2">2月</li>
+          <li class="tag" data-tag="3">3月</li>
+          <li class="tag" data-tag="4">4月</li>
+          <li class="tag" data-tag="5">5月</li>
+          <li class="tag" data-tag="6">6月</li>
+          <li class="tag" data-tag="7">7月</li>
+          <li class="tag" data-tag="8">8月</li>
+          <li class="tag" data-tag="9">9月</li>
+          <li class="tag" data-tag="10">10月</li>
+          <li class="tag" data-tag="11">11月</li>
+          <li class="tag" data-tag="12">12月</li>
+          <li class="tag" data-tag="1">1月</li>
+          <li class="tag" data-tag="2">2月</li>
+          <li class="tag" data-tag="3">3月</li>
+          <li class="tag" data-tag="4">4月</li>
+          <li class="tag" data-tag="5">5月</li>
+          <li class="tag" data-tag="6">6月</li>
+          <li class="tag" data-tag="7">7月</li>
+          <li class="tag" data-tag="8">8月</li>
+          <li class="tag" data-tag="9">9月</li>
+          <li class="tag" data-tag="10">10月</li>
+          <li class="tag" data-tag="11">11月</li>
+          <li class="tag" data-tag="12">12月</li>
         </ul>
-
-        <!-- 分页 -->
-        <div class="hot-lesson-pagination">
-          {{if pageList[1].length > 0}}
-          <ul class="nav nav-pills nav-justified">
-            <li role="presentation" class="active">
-              <a href="#hotLessonPage1">1</a>
-            </li>
-            <li role="presentation">
-              <a href="#hotLessonPage2">2</a>
-            </li>
-          </ul>
-          {{/if}}
-        </div>
       </div>
+      <div class="more">更多&nbsp;<i class="fa fa-angle-down"></i></div>
+    </script>
+    <!-- 专业方向 -->
+    <script id="productDirectionTmp" type="text/html">
+      <div class="filter-label">专业方向：</div>
+      <div class="active all tag" data-tag="all">全部</div>
+      <div class="tags h24">
+        <ul class="clearfix">
+          <li class="tag" data-tag="1">1月</li>
+          <li class="tag" data-tag="2">2月</li>
+          <li class="tag" data-tag="3">3月</li>
+        </ul>
+      </div>
+      <div class="more">更多&nbsp;<i class="fa fa-angle-down"></i></div>
+    </script>
+    <!-- 职业认证 -->
+    <script id="professionalCertifyTmp" type="text/html">
+      <div class="filter-label">职业认证：</div>
+      <div class="active all tag" data-tag="all">全部</div>
+      <div class="tags h24">
+        <ul class="clearfix">
+          <li class="tag" data-tag="1">1月</li>
+          <li class="tag" data-tag="2">2月</li>
+          <li class="tag" data-tag="3">3月</li>
+        </ul>
+      </div>
+      <div class="more">更多&nbsp;<i class="fa fa-angle-down"></i></div>
     </script>
     <!-- -------------------------------模板片段 END--------------------------------------- -->
 
@@ -663,11 +744,15 @@
     <script src="../lib/jquery/jquery.min.js"></script>
     <!-- 引入 bootstrap 所有的 js 插件 -->
     <script src="../lib/bootstrap@3/js/bootstrap.min.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="../lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
     <!-- 引入模板引擎插件 -->
     <script src="../lib/art-template/template-web.js"></script>
     <!-- 引入公共 js -->
     <script src="../js/common.js"></script>
+    <!-- 引入 utils.js -->
+    <script src="../js/utils.js"></script>
     <!-- 引入页面 js -->
-    <script src="../js/index.js"></script>
+    <script src="../js/lesson.js"></script>
   </body>
 </html>

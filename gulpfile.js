@@ -107,6 +107,7 @@ const webHandler = function () {
       port: '8099', // 端口号
       livereload: true, // 当文件更新时候，是否自动刷新页面
       open: './pages/lesson.html', // 默认打开那一个文件
+      open: './pages/lessonDetail.html', // 默认打开那一个文件
       // 配置所有的代理
       proxies: [
         {

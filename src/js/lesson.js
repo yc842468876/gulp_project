@@ -34,8 +34,7 @@ $(function () {
     // 切换类型监听
     $('#lessonType a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       const { type } = $(this).data();
-      lesson_type = type;
-      handleTabChange();
+      handleTabChange(type);
     });
     // 监听筛选条件点击事件--月份（多选）
     $('#filterMonth').on('click', '.tag', function () {
@@ -59,8 +58,8 @@ $(function () {
       .on('click', '.more', function () {
         const isExpand = $(this).text().includes('更多');
         const htmlStr = isExpand
-          ? `收起&nbsp;<i class="fa fa-angle-up"></i>`
-          : `更多&nbsp;<i class="fa fa-angle-down"></i>`;
+          ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
+          : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
         $(this).html(htmlStr);
         const autoHeight = $(this).siblings('.tags').find('ul').height();
         $(this)
@@ -85,8 +84,8 @@ $(function () {
       .on('click', '.more', function () {
         const isExpand = $(this).text().includes('更多');
         const htmlStr = isExpand
-          ? `收起&nbsp;<i class="fa fa-angle-up"></i>`
-          : `更多&nbsp;<i class="fa fa-angle-down"></i>`;
+          ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
+          : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
         $(this).html(htmlStr);
         const autoHeight = $(this).siblings('.tags').find('ul').height();
         $(this)
@@ -111,8 +110,8 @@ $(function () {
       .on('click', '.more', function () {
         const isExpand = $(this).text().includes('更多');
         const htmlStr = isExpand
-          ? `收起&nbsp;<i class="fa fa-angle-up"></i>`
-          : `更多&nbsp;<i class="fa fa-angle-down"></i>`;
+          ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
+          : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
         $(this).html(htmlStr);
         const autoHeight = $(this).siblings('.tags').find('ul').height();
         $(this)
@@ -167,8 +166,8 @@ $(function () {
     $('.search-lessons .search-content').on('click', '.addTr', function () {
       const isExpand = $(this).text().includes('更多');
       const htmlStr = isExpand
-        ? `收起&nbsp;<i class="fa fa-angle-up"></i>`
-        : `展开更多&nbsp;<i class="fa fa-angle-down"></i>`;
+        ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
+        : `展开更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
       if (isExpand) {
         $(this).html(htmlStr).siblings('table').find('tr.hide-part').show();
       } else {
@@ -242,10 +241,12 @@ $(function () {
 
   /**
    * 切换 tab 事件
+   * @param {string} initTagObj 初始标签值--页面路由传参
    * @param {Object} initTagObj 初始标签值--页面路由传参
    */
-  function handleTabChange(initTagObj) {
-    initTag(initTagObj || {}); // 初始化标签
+  function handleTabChange(type = 'generalLesson', initTagObj = {}) {
+    lesson_type = type;
+    initTag(initTagObj); // 初始化标签
     key_words = ''; // 初始化关键词搜索
     $('.search-lessons .search-inp .form-control').val('');
     switch (lesson_type) {
@@ -361,8 +362,6 @@ $(function () {
         tagsArr = [];
       }
       const tagString = tagsArr.join(',');
-      container.find('input').val(tagString);
-      if (id === '') filter_month = tagString;
       switch (id) {
         case 'filterMonth':
           filter_month = tagString || null;
@@ -386,7 +385,8 @@ $(function () {
 
     // 切换选中标签--清空关键字和页码初始
     currentPage = 1;
-    key_words = ''; // 初始化关键词搜索
+    // 初始化关键词搜索
+    key_words = '';
     $('.search-lessons .search-inp .form-control').val('');
 
     // 回调--查询课程用

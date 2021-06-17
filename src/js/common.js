@@ -45,3 +45,23 @@ $(function () {
     });
   }
 });
+
+/**
+ * 序列化表单数据方法
+ * @returns {Object} formdata
+ */
+$.fn.serializeObject = function () {
+  var ct = this.serializeArray();
+  var obj = {};
+  $.each(ct, function () {
+    if (obj[this.name] !== undefined) {
+      if (!obj[this.name].push) {
+        obj[this.name] = [obj[this.name]];
+      }
+      obj[this.name].push(this.value || '');
+    } else {
+      obj[this.name] = this.value || '';
+    }
+  });
+  return obj;
+};

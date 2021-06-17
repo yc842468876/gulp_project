@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>课程详情</title>
+    <!-- 引入 bootstrap 样式 -->
+    <link rel="stylesheet" href="../lib/bootstrap@3/css/bootstrap.min.css" />
+    <!-- 引入字体图标 fontAwesome -->
+    <link
+      rel="stylesheet"
+      href="../lib/font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+    <!-- 引入全局样式 -->
+    <link rel="stylesheet" href="../sass/global.css" />
+    <!-- 引入公共样式 -->
+    <link rel="stylesheet" href="../sass/common.css" />
+    <!-- 引入界面样式 -->
+    <link rel="stylesheet" href="../sass/lessonDetail.css" />
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- 头部导航部分 -->
+    <header id="header">
+      <div class="container">
+        <!-- 左侧导航 -->
+        <div class="left-nav">
+          <!-- logo -->
+          <div class="logo">
+            <a href="/pages/index.html"
+              ><img src="../images/logo.png" alt="logo"
+            /></a>
+          </div>
+          <!-- nav -->
+          <ul class="link-list">
+            <li class="link-item">
+              <a href="/pages/index.html">首页</a>
+            </li>
+            <li class="divider"></li>
+            <li class="link-item active select-lesson-center">
+              <a href="/pages/lesson.html">选课中心</a>
+              <div class="link-item-mask"></div>
+            </li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">研究中心</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">睿选活动</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">干货资讯</a></li>
+            <li class="divider"></li>
+            <li class="link-item"><a href="#">关于睿选优课</a></li>
+          </ul>
+        </div>
+        <!-- 右侧搜索 -->
+        <div class="right-nav">
+          <div class="phone-number"><span>400- 921- 0939</span></div>
+          <div class="input-group search-inp">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="输入想搜索的关键词"
+            />
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 主要内容部分 -->
+    <main>
+      <div class="container">
+        <!-- top 搜索 -->
+        <section class="search-course clearfix">
+          <div class="search-l">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="" />
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">搜索</button>
+              </span>
+            </div>
+          </div>
+          <div class="search-r">
+            <a href="#" class="download-link">
+              <i class="icon glyphicon glyphicon-download-alt"></i>
+              <span>2021课程安排表</span>
+            </a>
+          </div>
+        </section>
+        <!-- 面包屑导航 -->
+        <section class="bread-nav">
+          <ul class="clearfix">
+            <li><a href="/pages/index.html">首页</a></li>
+            <li><a href="/pages/lesson.html">选课中心</a></li>
+            <li><a href="/pages/lesson.html">面授课程</a></li>
+            <li><a href="/pages/lesson.html">领导力</a></li>
+            <li><a href="/pages/lesson.html">管理经理</a></li>
+            <li class="active"><a href="#">跨部门沟通、协作与冲突处理</a></li>
+          </ul>
+        </section>
+        <!-- 课程信息部分 -->
+        <section class="course-info">
+          <h2 class="course-name">公司财务分析与风险防范</h2>
+          <div class="basic-info clearfix">
+            <div class="course-pic">
+              <img src="../images/lesson_category_01.png" alt="" />
+            </div>
+            <div class="txt-info">
+              <p class="clearfix">
+                <span class="tit">课程时长：</span>
+                <span class="days-num">2天</span>
+              </p>
+              <p class="clearfix">
+                <span class="tit">课程价格：</span>
+                <span class="price">¥3000/人</span>
+              </p>
+              <p class="clearfix">
+                <span class="tit">培训对象：</span>
+                <span class="fit-object"
+                  >财务总监、总会计师财务经理、财务主管、财务分析专员金融机构投资分析与研究人员</span
+                >
+              </p>
+              <p class="btn-group clearfix">
+                <button type="button" class="btn btn-default">
+                  观看课程介绍
+                </button>
+                <button type="button" class="btn btn-default">下载课纲</button>
+                <button type="button" class="btn btn-default">预约报名</button>
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- 课程安排信息部分 -->
+        <section class="course-arrange-info clearfix">
+          <div class="left-side">
+            <div class="tab-info">
+              <!-- 标签页 -->
+              <ul class="nav nav-pills course-tab" role="tablist">
+                <li role="presentation" class="active">
+                  <a
+                    href="#courseDetail"
+                    aria-controls="courseDetail"
+                    role="tab"
+                    data-toggle="tab"
+                    >课程详情</a
+                  >
+                </li>
+                <li role="presentation">
+                  <a
+                    href="#courseArrange"
+                    aria-controls="courseArrange"
+                    role="tab"
+                    data-toggle="tab"
+                    >开课安排</a
+                  >
+                </li>
+              </ul>
+              <!-- 内容部分 -->
+              <div class="tab-content">
+                <div
+                  role="tabpanel"
+                  class="tab-pane active detail"
+                  id="courseDetail"
+                >
+                  courseDetail
+                </div>
+                <div
+                  role="tabpanel"
+                  class="tab-pane arrange"
+                  id="courseArrange"
+                >
+                  courseArrange
+                </div>
+              </div>
+            </div>
+
+            <div class="form-box">
+              <!-- 标签页 -->
+              <ul class="nav nav-pills form-tab" role="tablist">
+                <li role="presentation" class="active">
+                  <a
+                    href="#getCoursePlanForm"
+                    aria-controls="getCoursePlanForm"
+                    role="tab"
+                    data-toggle="tab"
+                    >注册获取课程计划</a
+                  >
+                </li>
+              </ul>
+              <!-- 内容部分 -->
+              <div class="tab-content">
+                <div
+                  role="tabpanel"
+                  class="tab-pane active detail"
+                  id="getCoursePlanForm"
+                >
+                  <form id="form1">
+                    <div class="input-group isRequired">
+                      <label>姓　名：</label>
+                      <input
+                        name="name"
+                        type="text"
+                        class="form-control"
+                        placeholder="你的姓名"
+                        required
+                      />
+                    </div>
+                    <div class="input-group isRequired">
+                      <label>手　机：</label>
+                      <input
+                        name="mobile"
+                        type="text"
+                        pattern="^1[0-9]{10}$"
+                        class="form-control"
+                        placeholder="你的手机号"
+                        required
+                      />
+                    </div>
+                    <div class="input-group">
+                      <label>邮　箱：</label>
+                      <input
+                        name="email"
+                        type="email"
+                        class="form-control"
+                        placeholder="常用邮箱"
+                      />
+                    </div>
+                    <div class="input-group">
+                      <label>公　司：</label>
+                      <input
+                        name="company"
+                        type="text"
+                        class="form-control"
+                        placeholder="所在公司"
+                      />
+                    </div>
+                    <div class="input-group">
+                      <label>职　位：</label>
+                      <input
+                        name="position"
+                        type="text"
+                        class="form-control"
+                        placeholder="担任的职位"
+                      />
+                    </div>
+                    <div class="form-submit">
+                      <button type="submit" class="btn btn-default">
+                        提交
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="add-img">
+              <img src="../images/one_stop_solution_01.png" alt="" />
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer id="footer">
+      <section class="other-info">
+        <div class="container">
+          <div class="other-links">
+            <dl>
+              <dt>学习平台</dt>
+              <dd><a href="#">面授课程</a></dd>
+              <dd><a href="#">在线课程</a></dd>
+              <dd><a href="#">职业认证</a></dd>
+            </dl>
+            <dl>
+              <dt>研究中心</dt>
+              <dd><a href="#">课程研究</a></dd>
+              <dd><a href="#">最新报告</a></dd>
+            </dl>
+            <dl>
+              <dt>睿选活动</dt>
+              <dd><a href="#">近期活动</a></dd>
+              <dd><a href="#">往期回顾</a></dd>
+            </dl>
+            <dl>
+              <dt>睿选资讯</dt>
+              <dd><a href="#">政策前沿</a></dd>
+              <dd><a href="#">案例实践</a></dd>
+              <dd><a href="#">对话高管</a></dd>
+              <dd><a href="#">睿选视角</a></dd>
+            </dl>
+            <dl>
+              <dt>关于睿选优课</dt>
+              <dd><a href="#">公司简介</a></dd>
+              <dd><a href="#">合作客户</a></dd>
+            </dl>
+            <div class="contact-type">
+              <!-- 公众号、联系老师 -->
+              <div class="pic">
+                <div class="wxChat">
+                  <i class="fa fa-wechat"></i>
+                  <div class="ewm">
+                    <img src="" alt="" />
+                    <p>扫一扫，关注微信公众号</p>
+                  </div>
+                </div>
+                <div class="consult-teacher">
+                  <i class="fa fa-headphones"></i>
+                  <div class="ewm">
+                    <img src="" alt="" />
+                    <p>扫一扫，咨询老师</p>
+                  </div>
+                </div>
+              </div>
+              <!-- 电话、邮箱、地址 -->
+              <dl>
+                <dt>客服：400-921-0939</dt>
+                <dd>（周一至周五 8:30-17:30）</dd>
+                <dd>Service@sino-bestway.com.cn</dd>
+                <dd>总部地址：上海市静安区恒丰路568号恒汇国际大厦7楼</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="friendly-link">
+        <div class="container">
+          <div class="content">
+            <div class="links">
+              <span class="title">友情链接</span>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程链接</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程</a>
+              <a href="#">睿选优课课程链接</a>
+            </div>
+            <div class="copy-right">
+              Copyright Bestway. All Rights Reserved. 百仕瑞企业管理顾问有限公司
+              版权所有 沪ICP备13015846号-3
+              <img src="../images/copy_right.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <!-- 返回顶部 -->
+    <div id="return-top">
+      <a href="#">返回顶部</a>
+    </div>
+
+    <!-- -------------------------------模板片段 START--------------------------------------- -->
+    <!-- 选课中心 -->
+    <script id="selectProductCenterTmp" type="text/html">
+      <!-- 标签分类 -->
+      {{ set productList = product && product.length > 0 ? product : [] }}
+      {{each productList category idx1}}
+      <div class="category">
+        <h3>{{category.barName || '-'}}</h3>
+        <hr />
+        <ul class="first-class-list">
+          {{set levelChildrenModelList = category.levelChildrenModelList}}
+          {{each levelChildrenModelList firstClass idx2 }}
+          <li class="first-class-list-item clearfix">
+            <div class="first-class-name">{{firstClass.firstClassName}}</div>
+            <div class="second-class-list row {{idx1 == 2 ? 'certify' : ''}}">
+              {{set secondClassList = firstClass.secondClassList}} {{each
+              secondClassList secondClass idx3}}
+              <div
+                class="{{idx1 != 2 ? 'col-md-6 txt-ellipsis' : 'col-md-12 txt-ellipsis'}}"
+              >
+                <a href="#"> {{secondClass || '-'}} </a>
+              </div>
+              {{/each}}
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+      {{/each}}
+      <!-- 推荐课 -->
+      {{ set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
+      [] }}
+      <ul class="recommend-list">
+        {{each hotList prd prdIdx}}
+        <li class="recommend-list-item">
+          <a href="#">
+            <img
+              src="{{prd.imgUrl || '../images/lesson_category_01.png'}}"
+              alt=""
+            />
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </script>
+    <!-- -------------------------------模板片段 END--------------------------------------- -->
+
+    <!-- 引入 jquery -->
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <!-- 引入 bootstrap 所有的 js 插件 -->
+    <script src="../lib/bootstrap@3/js/bootstrap.min.js"></script>
+    <!-- 引入模板引擎插件 -->
+    <script src="../lib/art-template/template-web.js"></script>
+    <!-- 引入公共 js -->
+    <script src="../js/common.js"></script>
+    <!-- 引入 utils.js -->
+    <script src="../js/utils.js"></script>
+    <!-- 引入页面 js -->
+    <script src="../js/lessonDetail.js"></script>
+  </body>
+</html>

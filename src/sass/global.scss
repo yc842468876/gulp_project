@@ -99,11 +99,11 @@ li {
 a,
 a:hover,
 a:visited,
-a:active {
+a:active,
+a:focus {
   color: #000;
   text-decoration: none;
   outline: 0;
-  cursor: pointer;
 }
 
 .f-l {

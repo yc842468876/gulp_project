@@ -46,7 +46,12 @@
             <li class="divider"></li>
             <li class="link-item active select-lesson-center">
               <a href="/pages/lesson.html">选课中心</a>
-              <div class="link-item-mask"></div>
+              <div class="link-item-mask">
+                <!-- 标签 -->
+                <ul class="categorys clearfix"></ul>
+                <!-- 推荐课 -->
+                <ul class="recommend-list"></ul>
+              </div>
             </li>
             <li class="divider"></li>
             <li class="link-item"><a href="#">研究中心</a></li>
@@ -90,66 +95,9 @@
 
       <div class="container lesson-c">
         <!-- 热门好课 -->
-        <section class="hot-good-lesson">
+        <section class="hot-good-lesson" id="hotGoodCourses">
           <h2>热门好课</h2>
-          <ul class="recommend-lesson-list">
-            <li class="recommend-lesson-item">
-              <div class="img">
-                <a href="#">
-                  <img src="../images/lesson_category_02.png" alt="" />
-                </a>
-              </div>
-              <div class="name txt-ellipsis">
-                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
-              </div>
-              <div class="info">
-                <span class="price">￥5800</span>
-                <a href="#" class="detail">详情</a>
-              </div>
-            </li>
-            <li class="recommend-lesson-item">
-              <div class="img">
-                <a href="#">
-                  <img src="../images/lesson_category_02.png" alt="" />
-                </a>
-              </div>
-              <div class="name txt-ellipsis">
-                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
-              </div>
-              <div class="info">
-                <span class="price">￥5800</span>
-                <a href="#" class="detail">详情</a>
-              </div>
-            </li>
-            <li class="recommend-lesson-item">
-              <div class="img">
-                <a href="#">
-                  <img src="../images/lesson_category_02.png" alt="" />
-                </a>
-              </div>
-              <div class="name txt-ellipsis">
-                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
-              </div>
-              <div class="info">
-                <span class="price">￥5800</span>
-                <a href="#" class="detail">详情</a>
-              </div>
-            </li>
-            <li class="recommend-lesson-item">
-              <div class="img">
-                <a href="#">
-                  <img src="../images/lesson_category_02.png" alt="" />
-                </a>
-              </div>
-              <div class="name txt-ellipsis">
-                新任经理快速胜任攻略新任经理快速胜任攻略新任经理快速胜任攻略
-              </div>
-              <div class="info">
-                <span class="price">￥5800</span>
-                <a href="#" class="detail">详情</a>
-              </div>
-            </li>
-          </ul>
+          <ul class="recommend-lesson-list"></ul>
         </section>
 
         <!-- 搜索课程 -->
@@ -163,41 +111,41 @@
             >
               <li role="presentation" class="active">
                 <a
-                  href="#type1"
-                  aria-controls="generalLesson"
+                  href="#GENERAL"
+                  aria-controls="GENERAL"
                   role="tab"
                   data-toggle="tab"
-                  data-type="generalLesson"
+                  data-type="GENERAL"
                   >综合</a
                 >
               </li>
               <li role="presentation">
                 <a
-                  href="#type2"
-                  aria-controls="faceLesson"
+                  href="#FACE"
+                  aria-controls="FACE"
                   role="tab"
                   data-toggle="tab"
-                  data-type="faceLesson"
+                  data-type="FACE"
                   >线下课程</a
                 >
               </li>
               <li role="presentation">
                 <a
-                  href="#type3"
-                  aria-controls="onlineLesson"
+                  href="#ONLINE"
+                  aria-controls="ONLINE"
                   role="tab"
                   data-toggle="tab"
-                  data-type="onlineLesson"
+                  data-type="ONLINE"
                   >在线课程</a
                 >
               </li>
               <li role="presentation">
                 <a
-                  href="#type4"
-                  aria-controls="professionalCertify"
+                  href="#PRO"
+                  aria-controls="PRO"
                   role="tab"
                   data-toggle="tab"
-                  data-type="professionalCertify"
+                  data-type="PRO"
                   >职业认证</a
                 >
               </li>
@@ -211,45 +159,72 @@
               <div class="active all tag" data-tag="all">全部</div>
               <div class="tags">
                 <ul class="clearfix">
-                  <li class="tag" data-tag="1">1月</li>
-                  <li class="tag" data-tag="2">2月</li>
-                  <li class="tag" data-tag="3">3月</li>
-                  <li class="tag" data-tag="4">4月</li>
-                  <li class="tag" data-tag="5">5月</li>
-                  <li class="tag" data-tag="6">6月</li>
-                  <li class="tag" data-tag="7">7月</li>
-                  <li class="tag" data-tag="8">8月</li>
-                  <li class="tag" data-tag="9">9月</li>
-                  <li class="tag" data-tag="10">10月</li>
-                  <li class="tag" data-tag="11">11月</li>
-                  <li class="tag" data-tag="12">12月</li>
+                  <li class="tag" data-tag="1" data-code="1">1月</li>
+                  <li class="tag" data-tag="2" data-code="2">2月</li>
+                  <li class="tag" data-tag="3" data-code="3">3月</li>
+                  <li class="tag" data-tag="4" data-code="4">4月</li>
+                  <li class="tag" data-tag="5" data-code="5">5月</li>
+                  <li class="tag" data-tag="6" data-code="6">6月</li>
+                  <li class="tag" data-tag="7" data-code="7">7月</li>
+                  <li class="tag" data-tag="8" data-code="8">8月</li>
+                  <li class="tag" data-tag="9" data-code="9">9月</li>
+                  <li class="tag" data-tag="10" data-code="10">10月</li>
+                  <li class="tag" data-tag="11" data-code="11">11月</li>
+                  <li class="tag" data-tag="12" data-code="12">12月</li>
                 </ul>
               </div>
             </div>
             <!-- 课程类型 -->
-            <div class="form-group clearfix" id="courseCategory"></div>
+            <div class="form-group clearfix" id="courseCategory">
+              <div class="filter-label">课程类别：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags h24">
+                <ul class="clearfix"></ul>
+              </div>
+              <div class="more">
+                更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
+              </div>
+            </div>
             <!-- 专业方向 -->
-            <div class="form-group clearfix" id="productDirection"></div>
+            <div class="form-group clearfix" id="productDirection">
+              <div class="filter-label">专业方向：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags h24">
+                <ul class="clearfix"></ul>
+              </div>
+              <div class="more">
+                更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
+              </div>
+            </div>
             <!-- 职业认证 -->
-            <div class="form-group clearfix" id="professionalCertify"></div>
+            <div class="form-group clearfix" id="professionalCertify">
+              <div class="filter-label">职业认证：</div>
+              <div class="active all tag" data-tag="all">全部</div>
+              <div class="tags h24">
+                <ul class="clearfix"></ul>
+              </div>
+              <div class="more">
+                更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
+              </div>
+            </div>
             <!-- 开课城市 -->
             <div class="form-group clearfix" id="filterCity">
               <div class="filter-label">上课城市：</div>
               <div class="active all tag" data-tag="all">全部</div>
               <div class="tags">
                 <ul class="clearfix">
-                  <li class="tag" data-tag="上海">上海</li>
-                  <li class="tag" data-tag="苏州">苏州</li>
-                  <li class="tag" data-tag="北京">北京</li>
-                  <li class="tag" data-tag="天津">天津</li>
-                  <li class="tag" data-tag="广州">广州</li>
-                  <li class="tag" data-tag="深圳">深圳</li>
-                  <li class="tag" data-tag="杭州">杭州</li>
-                  <li class="tag" data-tag="南京">南京</li>
-                  <li class="tag" data-tag="昆山">昆山</li>
-                  <li class="tag" data-tag="无锡">无锡</li>
-                  <li class="tag" data-tag="宁波">宁波</li>
-                  <li class="tag" data-tag="其他">其他</li>
+                  <li class="tag" data-tag="上海" data-code="上海">上海</li>
+                  <li class="tag" data-tag="苏州" data-code="苏州">苏州</li>
+                  <li class="tag" data-tag="北京" data-code="北京">北京</li>
+                  <li class="tag" data-tag="天津" data-code="天津">天津</li>
+                  <li class="tag" data-tag="广州" data-code="广州">广州</li>
+                  <li class="tag" data-tag="深圳" data-code="深圳">深圳</li>
+                  <li class="tag" data-tag="杭州" data-code="杭州">杭州</li>
+                  <li class="tag" data-tag="南京" data-code="南京">南京</li>
+                  <li class="tag" data-tag="昆山" data-code="昆山">昆山</li>
+                  <li class="tag" data-tag="无锡" data-code="无锡">无锡</li>
+                  <li class="tag" data-tag="宁波" data-code="宁波">宁波</li>
+                  <li class="tag" data-tag="其他" data-code="其他">其他</li>
                 </ul>
               </div>
             </div>
@@ -259,9 +234,15 @@
               <div class="active all tag" data-tag="all">全部</div>
               <div class="tags">
                 <ul class="clearfix">
-                  <li class="tag" data-tag="0,5000">&lt;5000元</li>
-                  <li class="tag" data-tag="5000,10000">5000-10000元</li>
-                  <li class="tag" data-tag="10000,">10000元以上</li>
+                  <li class="tag" data-tag="0,5000" data-code="0,5000">
+                    &lt;5000元
+                  </li>
+                  <li class="tag" data-tag="5000,10000" data-code="5000,10000">
+                    5000-10000元
+                  </li>
+                  <li class="tag" data-tag="10000," data-code="10000,">
+                    10000元以上
+                  </li>
                 </ul>
               </div>
             </div>
@@ -286,214 +267,7 @@
               </div>
               <div class="search-content">
                 <!-- 课程列表 -->
-                <ul class="course-list" id="courseList">
-                  <li class="course-item">
-                    <div class="info clearfix">
-                      <div class="info-l">
-                        <img src="" alt="" />
-                      </div>
-                      <div class="info-r">
-                        <h3>Power BI经营分析实战营</h3>
-                        <div class="c clearfix">
-                          <div class="course-feature">
-                            <h4>课程特色：</h4>
-                            <p>
-                              打破财务思维，掌握、使用经营分析方法，准确把握企业经营状况，从企业战略出发，与商业模式相结合，构建业财融合的分析思路，将
-                              Excel 与 Power BI
-                              相结合，帮助财务提升经营分析效率与结果，精准直击企业经营数据，提高财务人汇报技巧，有效提供决策信息。
-                            </p>
-                          </div>
-                          <div class="fit-object">
-                            <h4>适合对象：</h4>
-                            <p>
-                              财务分析师 (包含 FP&A、财务 BP
-                              等)、管理会计、经营分析等相关职能，财务总监、财务经理、财务主管等财务管理层
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- 开课时间表 -->
-                    <table>
-                      <tr>
-                        <th>开课时间</th>
-                        <th>地点</th>
-                        <th>价格</th>
-                        <th></th>
-                      </tr>
-                      <tr>
-                        <td>2021.06.19 至 2021.06.20</td>
-                        <td>深圳</td>
-                        <td>￥3000/人</td>
-                        <td><a>报名</a></td>
-                      </tr>
-                      <tr>
-                        <td>2021.06.19 至 2021.06.20</td>
-                        <td>深圳</td>
-                        <td>￥3000/人</td>
-                        <td><a>报名</a></td>
-                      </tr>
-                      <tr>
-                        <td>2021.06.19 至 2021.06.20</td>
-                        <td>深圳</td>
-                        <td>￥3000/人</td>
-                        <td><a>报名</a></td>
-                      </tr>
-                      <tr class="hide-part">
-                        <td>2021.06.19 至 2021.06.20</td>
-                        <td>深圳</td>
-                        <td>￥3000/人</td>
-                        <td><a>报名</a></td>
-                      </tr>
-                      <tr class="hide-part">
-                        <td>2021.06.19 至 2021.06.20</td>
-                        <td>深圳</td>
-                        <td>￥3000/人</td>
-                        <td><a>报名</a></td>
-                      </tr>
-                    </table>
-                    <div class="addTr">
-                      展开更多&nbsp;<i
-                        class="glyphicon glyphicon-menu-down"
-                      ></i>
-                    </div>
-                  </li>
-                </ul>
-                <!-- 在线课列表 -->
-                <ul class="online-course-list clearfix" style="display: none">
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item overdue">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item overdue">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                  <li class="course-item">
-                    <a>
-                      <div class="course-pic">
-                        <img src="../images/lesson_category_03.png" alt="" />
-                      </div>
-                      <p class="course-name txt-ellipsis">
-                        一般纳税人全盘账复盘
-                      </p>
-                      <p class="course-time">2021年06月19日 19:00</p>
-                    </a>
-                  </li>
-                </ul>
+                <div id="courseList"></div>
                 <!-- 分页 -->
                 <div class="course-paginator">
                   <ul id="coursePaginator"></ul>
@@ -501,34 +275,9 @@
               </div>
             </div>
             <!-- 热门网课 -->
-            <div class="c-r">
+            <div class="c-r" id="bestSellingCourse">
               <h3>畅销网课</h3>
-              <ul class="hot-course">
-                <li class="hot-course-item">
-                  <a>
-                    <div class="course-pic">
-                      <img src="../images/lesson_category_03.png" alt="" />
-                    </div>
-                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
-                  </a>
-                </li>
-                <li class="hot-course-item">
-                  <a>
-                    <div class="course-pic">
-                      <img src="../images/lesson_category_03.png" alt="" />
-                    </div>
-                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
-                  </a>
-                </li>
-                <li class="hot-course-item">
-                  <a>
-                    <div class="course-pic">
-                      <img src="../images/lesson_category_03.png" alt="" />
-                    </div>
-                    <p class="course-name">抓住两个关键点，绩效管理不再难</p>
-                  </a>
-                </li>
-              </ul>
+              <ul class="hot-course"></ul>
             </div>
           </div>
         </section>
@@ -636,12 +385,12 @@
     </div>
 
     <!-- -------------------------------模板片段 START--------------------------------------- -->
-    <!-- 选课中心 -->
+    <!-- 选课中心--标签 -->
     <script id="selectProductCenterTmp" type="text/html">
       <!-- 标签分类 -->
       {{ set productList = product && product.length > 0 ? product : [] }}
       {{each productList category idx1}}
-      <div class="category">
+      <li class="category">
         <h3>{{category.barName || '-'}}</h3>
         <hr />
         <ul class="first-class-list">
@@ -655,96 +404,196 @@
               <div
                 class="{{idx1 != 2 ? 'col-md-6 txt-ellipsis' : 'col-md-12 txt-ellipsis'}}"
               >
-                <a href="#"> {{secondClass || '-'}} </a>
+                {{if idx1 === 0}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=FACE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 1}}<a
+                  href="{{`/pages/lesson.html?lessonType=ONLINE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 2}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=PRO&supplyTag=${firstClass.firstClassName}`}}"
+                  >{{secondClass || '-'}}</a
+                >{{/if}}
               </div>
               {{/each}}
             </div>
           </li>
           {{/each}}
         </ul>
-      </div>
+      </li>
       {{/each}}
-      <!-- 推荐课 -->
-      {{ set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
-      [] }}
-      <ul class="recommend-list">
-        {{each hotList prd prdIdx}}
-        <li class="recommend-list-item">
-          <a href="#">
-            <img
-              src="{{prd.imgUrl || '../images/lesson_category_01.png'}}"
-              alt=""
-            />
+    </script>
+    <!-- 选课中心--推荐课 -->
+    <script id="selectProductRecommand" type="text/html">
+      {{each courses item idx}}
+      <li class="recommend-list-item">
+        <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
+          <img src="{{item.imgUrl}}" alt="" />
+        </a>
+      </li>
+      {{/each}}
+    </script>
+    <!-- 热门好课 -->
+    <script id="hotGoodCoursesTmp" type="text/html">
+      {{each courses item idx}}
+      <li class="recommend-lesson-item">
+        <div class="img">
+          <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
+            <img src="{{item.imgUrl}}" alt="" />
+          </a>
+        </div>
+        <div class="name txt-ellipsis">{{item.productName || '-'}}</div>
+        <div class="info">
+          <span class="price">￥{{item.coursePrice || '-'}}</span>
+          <a
+            href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}"
+            class="detail"
+            >详情</a
+          >
+        </div>
+      </li>
+      {{/each}}
+    </script>
+    <!-- 课程类别 -->
+    <script id="courseCategoryTmp" type="text/html">
+      {{each first_tag item idx}}
+      <li
+        class="tag"
+        data-tag="{{item.labelName}}"
+        data-code="{{item.labelCode}}"
+      >
+        {{item.labelName}}
+      </li>
+      {{/each}}
+    </script>
+    <!-- 专业方向 -->
+    <script id="productDirectionTmp" type="text/html">
+      {{each second_tag item idx}}
+      <li
+        class="tag"
+        data-tag="{{item.labelName}}"
+        data-code="{{item.labelCode}}"
+      >
+        {{item.labelName}}
+      </li>
+      {{/each}}
+    </script>
+    <!-- 职业认证 -->
+    <script id="professionalCertifyTmp" type="text/html">
+      {{each supply_tag item idx}}
+      <li
+        class="tag"
+        data-tag="{{item.labelName}}"
+        data-code="{{item.labelCode}}"
+      >
+        {{item.labelName}}
+      </li>
+      {{/each}}
+    </script>
+    <!-- 畅销网课 -->
+    <script id="bestSellingCourseTmp" type="text/html">
+      {{each courses item idx}}
+      <li class="hot-course-item">
+        <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
+          <div class="course-pic">
+            <img src="{{item.imgUrl}}" alt="" />
+          </div>
+          <p class="course-name">{{item.productName || '-'}}</p>
+        </a>
+      </li>
+      {{/each}}
+    </script>
+    <script id="courseListTmp" type="text/html">
+      {{if lessonType !== 'ONLINE'}}
+      <!-- 课程列表 -->
+      <ul class="course-list">
+        {{each list item idx}}
+        <li class="course-item">
+          <div class="info clearfix">
+            <div class="info-l">
+              <img src="{{item.headUrl}}" alt="" />
+            </div>
+            <div class="info-r">
+              <a
+                href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}"
+              >
+                <h3>{{item.productName}}</h3>
+              </a>
+              <div class="c clearfix">
+                <div class="course-feature">
+                  <h4>课程特色：</h4>
+                  <p>{{item.marketingCourseHighlight || '-'}}</p>
+                </div>
+                <div class="fit-object">
+                  <h4>适合对象：</h4>
+                  <p>{{item.trainingTarget || '-'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 开课时间表 -->
+          {{if item.courseOutList && item.courseOutList.length > 0}}
+          <table>
+            <tr>
+              <th>开课时间</th>
+              <th>地点</th>
+              <th>价格</th>
+              <th></th>
+            </tr>
+            {{each item.courseOutList item2 idx2}}
+            <tr class="{{idx2 > 2 ? 'hide-part' : ''}}">
+              <td>
+                {{item2.startTimeStr === item2.endTimeStr ? item2.startTimeStr :
+                `${item2.startTimeStr} 至 ${item2.endTimeStr}`}}
+              </td>
+              <td>{{item2.courseCity || '-'}}</td>
+              <td>￥{{item2.coursePrice || '-'}}/人</td>
+              <td>
+                {{if item2.courseFlag === '报名'}}
+                <a
+                  href="{{`/pages/lessonDetail.html?productId=${item2.productId}`}}"
+                >
+                  {{item2.courseFlag}}</a
+                >
+                {{else}}
+                <span class="isOverDue">{{item2.courseFlag}}</span>
+                {{/if}}
+              </td>
+            </tr>
+            {{/each}}
+          </table>
+          {{/if}}
+          <!-- 超过3条展示更多按钮 -->
+          {{if item.courseOutList && item.courseOutList.length > 3}}
+          <div class="addTr">
+            展开更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
+          </div>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+      {{else}}
+      <!-- 在线课列表 -->
+      <ul class="online-course-list clearfix">
+        {{each list item idx}}
+        <li class="course-item">
+          <a href="`/pages/lessonDetail.html?productId=${item.productId}`">
+            <div class="course-pic">
+              <img src="{{item.headUrl}}" alt="" />
+            </div>
+            <p class="course-name txt-ellipsis">
+              课程名称：{{item.productName || '-'}}
+            </p>
+            <p class="course-time">时长：{{item.trainingDuration || '-'}}</p>
           </a>
         </li>
         {{/each}}
       </ul>
-    </script>
-    <!-- 课程类别 -->
-    <script id="courseCategoryTmp" type="text/html">
-      <div class="filter-label">课程类别：</div>
-      <div class="active all tag" data-tag="all">全部</div>
-      <div class="tags h24">
-        <ul class="clearfix">
-          <li class="tag" data-tag="1">1月</li>
-          <li class="tag" data-tag="2">2月</li>
-          <li class="tag" data-tag="3">3月</li>
-          <li class="tag" data-tag="4">4月</li>
-          <li class="tag" data-tag="5">5月</li>
-          <li class="tag" data-tag="6">6月</li>
-          <li class="tag" data-tag="7">7月</li>
-          <li class="tag" data-tag="8">8月</li>
-          <li class="tag" data-tag="9">9月</li>
-          <li class="tag" data-tag="10">10月</li>
-          <li class="tag" data-tag="11">11月</li>
-          <li class="tag" data-tag="12">12月</li>
-          <li class="tag" data-tag="1">1月</li>
-          <li class="tag" data-tag="2">2月</li>
-          <li class="tag" data-tag="3">3月</li>
-          <li class="tag" data-tag="4">4月</li>
-          <li class="tag" data-tag="5">5月</li>
-          <li class="tag" data-tag="6">6月</li>
-          <li class="tag" data-tag="7">7月</li>
-          <li class="tag" data-tag="8">8月</li>
-          <li class="tag" data-tag="9">9月</li>
-          <li class="tag" data-tag="10">10月</li>
-          <li class="tag" data-tag="11">11月</li>
-          <li class="tag" data-tag="12">12月</li>
-        </ul>
-      </div>
-      <div class="more">
-        更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
-      </div>
-    </script>
-    <!-- 专业方向 -->
-    <script id="productDirectionTmp" type="text/html">
-      <div class="filter-label">专业方向：</div>
-      <div class="active all tag" data-tag="all">全部</div>
-      <div class="tags h24">
-        <ul class="clearfix">
-          <li class="tag" data-tag="1">1月</li>
-          <li class="tag" data-tag="2">2月</li>
-          <li class="tag" data-tag="3">3月</li>
-        </ul>
-      </div>
-      <div class="more">
-        更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
-      </div>
-    </script>
-    <!-- 职业认证 -->
-    <script id="professionalCertifyTmp" type="text/html">
-      <div class="filter-label">职业认证：</div>
-      <div class="active all tag" data-tag="all">全部</div>
-      <div class="tags h24">
-        <ul class="clearfix">
-          <li class="tag" data-tag="1">1月</li>
-          <li class="tag" data-tag="2">2月</li>
-          <li class="tag" data-tag="3">3月</li>
-        </ul>
-      </div>
-      <div class="more">
-        更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
-      </div>
+      {{/if}}
     </script>
     <!-- -------------------------------模板片段 END--------------------------------------- -->
 

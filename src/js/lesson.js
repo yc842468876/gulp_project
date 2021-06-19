@@ -1,5 +1,5 @@
 $(function () {
-  let lesson_type = 'generalLesson'; // 选课类型--默认“综合”
+  let lesson_type = 'GENERAL'; // 选课类型--默认“综合”
   let filter_month = null; // 筛选月份
   let course_category = null; // 课程类别
   let product_direction = null; // 专业方向
@@ -10,6 +10,8 @@ $(function () {
   let key_words = ''; // 关键词搜索
   let pageSize = 5; // 一页条数
   let currentPage = 1; // 页码
+  let first_tag = []; // 一级分类标签--筛选条件
+  let second_tag = []; // 二级分类标签--筛选条件
 
   initData(); // 初始化数据
   bindEvents(); // 事件绑定
@@ -18,14 +20,7 @@ $(function () {
   /**
    * 初始化数据
    */
-  function initData() {
-    const { lessonType } = utils.getUrlParam();
-    if (lessonType) {
-      lesson_type = lessonType || lesson_type;
-      $(`#lessonType a[href="#${lessonType}"]`).tab('show');
-    }
-    handleTabChange();
-  }
+  function initData() {}
 
   /**
    * 事件绑定
@@ -147,20 +142,7 @@ $(function () {
       const inpValue = $('.search-lessons .search-inp .form-control').val();
       key_words = inpValue;
       currentPage = 1;
-      const data = {
-        lesson_type,
-        filter_month,
-        course_category,
-        product_direction,
-        professional_certify,
-        filter_city,
-        low_price,
-        up_price,
-        key_words,
-        pageSize,
-        currentPage,
-      };
-      queryData(data);
+      queryData();
     });
     // 搜索课程的时间表展开与折叠
     $('.search-lessons .search-content').on('click', '.addTr', function () {
@@ -180,14 +162,87 @@ $(function () {
    * 加载数据
    */
   function loadData() {
-    // 加载标签数据
-    $('#courseCategory').html(template('courseCategoryTmp', {}));
-    $('#productDirection').html(template('productDirectionTmp', {}));
-    $('#professionalCertify').html(template('professionalCertifyTmp', {}));
+    getHotGoodCourses(); // 查询热门好课
+    getProductQueryLabel(); // 获取产品标签
+    getBestSellingCourses(); // 加载畅销网课
+  }
 
-    setPage(currentPage, Math.ceil(130 / pageSize), function () {
-      console.log('currentPage', currentPage);
+  /**
+   * 获取产品标签
+   */
+  function getProductQueryLabel() {
+    $.post(`${BASE_URL}/product/getProductQueryLabel`, function (res) {
+      const { code, data } = res;
+      // console.log(data);
+      if (code == 200) {
+        // 缓存标签值
+        first_tag = data.first || [];
+        second_tag = data.second || [];
+        // 生成职业认证标签
+        $('#professionalCertify .tags ul').html(
+          template('professionalCertifyTmp', {
+            supply_tag: data.supply || [],
+          })
+        );
+        // 根据页面路由传参--初始化 一二级分类标签 渲染 和 其他标签 显示/隐藏
+        const { lessonType, firstTag, secondTag, supplyTag } = $.getUrlParam();
+        if (lessonType || firstTag || secondTag || supplyTag) {
+          lessonType && $(`#lessonType a[href="#${lessonType}"]`).tab('show'); // --查询两次bug，待完善
+          $('html, body').scrollTop($('.search-lessons').offset().top - 109);
+        }
+        handleTabChange(lessonType, { firstTag, secondTag, supplyTag });
+      }
     });
+  }
+
+  /**
+   * 查询热门好课
+   */
+  function getHotGoodCourses() {
+    const postData = {
+      count: 4,
+      courseType: 'hot',
+    };
+    $.post(
+      `${BASE_URL}/product/getPosterCourses`,
+      JSON.stringify(postData),
+      function (res) {
+        const { code, data } = res || {};
+        // console.log(data);
+        if (code == 200) {
+          $('#hotGoodCourses ul').html(
+            template('hotGoodCoursesTmp', {
+              ...data,
+            })
+          );
+        }
+      }
+    );
+  }
+
+  /**
+   * 加载畅销网课
+   */
+  function getBestSellingCourses() {
+    const postData = {
+      count: 6,
+      courseType: 'best',
+    };
+    $.post(
+      `${BASE_URL}/product/getPosterCourses`,
+      JSON.stringify(postData),
+      function (res) {
+        const { code, data } = res || {};
+        // console.log(data);
+        if (code == 200) {
+          $('#bestSellingCourse ul').html(
+            template('bestSellingCourseTmp', {
+              ...data,
+            })
+          );
+        }
+      }
+    );
   }
 
   /**
@@ -235,8 +290,42 @@ $(function () {
    * 查询数据
    * @param {*} postData 接口传参
    */
-  function queryData(postData) {
-    console.log('postData', postData);
+  function queryData() {
+    const postData = {
+      teachingForm: lesson_type !== 'GENERAL' ? lesson_type : 'ALL',
+      startMonth: filter_month,
+      firstClassList: course_category,
+      secClassList: product_direction,
+      supplyList: professional_certify ? professional_certify.split(',') : [],
+      city: filter_city,
+      lowPrice: low_price,
+      up_price: up_price,
+      keyWord: key_words,
+      pageIndex: currentPage,
+      pageSize: pageSize,
+    };
+    // console.log(postData);
+    $.post(
+      `${BASE_URL}/product/getProductQueryList`,
+      JSON.stringify(postData),
+      function (res) {
+        const { code, data } = res;
+        // console.log(data);
+        if (code == 200) {
+          $('#courseList').html(
+            template('courseListTmp', {
+              list: data.list || [],
+              lessonType: lesson_type,
+            })
+          );
+          if (data.count) {
+            setPage(currentPage, Math.ceil(data.count / pageSize), queryData);
+          } else {
+            $('#coursePaginator').html(null);
+          }
+        }
+      }
+    );
   }
 
   /**
@@ -244,30 +333,78 @@ $(function () {
    * @param {string} initTagObj 初始标签值--页面路由传参
    * @param {Object} initTagObj 初始标签值--页面路由传参
    */
-  function handleTabChange(type = 'generalLesson', initTagObj = {}) {
-    lesson_type = type;
-    initTag(initTagObj); // 初始化标签
-    key_words = ''; // 初始化关键词搜索
-    $('.search-lessons .search-inp .form-control').val('');
+  function handleTabChange(type, initTagObj) {
+    // 更新 tab 类型
+    lesson_type = type || 'GENERAL';
+    pageSize = lesson_type !== 'ONLINE' ? 5 : 15;
+    // 过滤一二级分类标签 且 显示可选标签类型
     switch (lesson_type) {
-      case 'generalLesson':
-      case 'faceLesson':
+      case 'GENERAL':
         $('#filterMonth').show();
         $('#courseCategory').show();
         $('#productDirection').show();
         $('#professionalCertify').hide();
         $('#filterCity').show();
         $('#filterPrice').show();
+        // 加载一二级标签数据
+        $('#courseCategory .tags ul').html(
+          template('courseCategoryTmp', {
+            first_tag,
+          })
+        );
+        $('#productDirection .tags ul').html(
+          template('productDirectionTmp', {
+            second_tag,
+          })
+        );
         break;
-      case 'onlineLesson':
+      case 'FACE':
+        $('#filterMonth').show();
+        $('#courseCategory').show();
+        $('#productDirection').show();
+        $('#professionalCertify').hide();
+        $('#filterCity').show();
+        $('#filterPrice').show();
+        // 加载一二级标签数据
+        $('#courseCategory .tags ul').html(
+          template('courseCategoryTmp', {
+            first_tag: first_tag.filter(
+              (v) => v.labelType && v.labelType.includes('FACE')
+            ),
+          })
+        );
+        $('#productDirection .tags ul').html(
+          template('productDirectionTmp', {
+            second_tag: second_tag.filter(
+              (v) => v.labelType && v.labelType.includes('FACE')
+            ),
+          })
+        );
+        break;
+      case 'ONLINE':
         $('#filterMonth').hide();
         $('#courseCategory').show();
         $('#productDirection').show();
         $('#professionalCertify').hide();
         $('#filterCity').hide();
         $('#filterPrice').show();
+        // 加载一二级标签数据
+        $('#courseCategory .tags ul').html(
+          template('courseCategoryTmp', {
+            first_tag: first_tag.filter(
+              (v) => v.labelType && v.labelType.includes('ONLINE')
+            ),
+          })
+        );
+        $('#productDirection .tags ul').html(
+          template('productDirectionTmp', {
+            second_tag: second_tag.filter(
+              (v) => v.labelType && v.labelType.includes('ONLINE')
+            ),
+          })
+        );
         break;
-      case 'professionalCertify':
+      case 'PRO':
         $('#filterMonth').show();
         $('#courseCategory').hide();
         $('#productDirection').hide();
@@ -278,37 +415,47 @@ $(function () {
       default:
         break;
     }
+    // 初始化标签
+    initTag(initTagObj || {});
+    queryData();
   }
 
   /**
    * 初始化标签选值
-   * @param {String} filterMonth 月份
-   * @param {String} courseType 课程类型
-   * @param {String} productDirection 专业方向
-   * @param {String} professionalCertify 职业认证
-   * @param {String} filterCity 城市
-   * @param {String} filterPrice 价格
+   * @param {String} firstTag 课程类型
+   * @param {String} secondTag 专业方向
+   * @param {String} supplyTag 职业认证
    */
-  function initTag({
-    filterMonth,
-    courseCategory,
-    productDirection,
-    professionalCertify,
-    filterCity,
-    filterPrice,
-  }) {
-    filterMonth = filterMonth ? filterMonth : 'all';
-    courseCategory = courseCategory ? courseCategory : 'all';
-    productDirection = productDirection ? productDirection : 'all';
-    professionalCertify = professionalCertify ? professionalCertify : 'all';
-    filterCity = filterCity ? filterCity : 'all';
-    filterPrice = filterPrice ? filterPrice : 'all';
-    changeTagValue({ id: 'courseCategory', tag: courseCategory });
-    changeTagValue({ id: 'filterMonth', tag: filterMonth });
-    changeTagValue({ id: 'productDirection', tag: productDirection });
-    changeTagValue({ id: 'professionalCertify', tag: professionalCertify });
-    changeTagValue({ id: 'filterCity', tag: filterCity });
-    changeTagValue({ id: 'filterPrice', tag: filterPrice });
+  function initTag({ firstTag, secondTag, supplyTag }) {
+    changeTagValue({ id: 'filterMonth', tag: 'all', initTab: true });
+    changeTagValue({
+      id: 'courseCategory',
+      tag: firstTag || 'all',
+      initTab: true,
+    });
+    // 如果初始选中，则展开该类标签--一级分类
+    if (firstTag) $('#courseCategory .more').trigger('click');
+    changeTagValue({
+      id: 'productDirection',
+      tag: secondTag || 'all',
+      initTab: true,
+    });
+    // 如果初始选中，则展开该类标签--二级分类
+    if (secondTag) $('#productDirection .more').trigger('click');
+    changeTagValue({
+      id: 'professionalCertify',
+      tag: supplyTag || 'all',
+      initTab: true,
+    });
+    // 如果初始选中，则展开该类标签--供应商
+    if (supplyTag) $('#professionalCertify .more').trigger('click');
+    changeTagValue({ id: 'filterCity', tag: 'all', initTab: true });
+    changeTagValue({
+      id: 'filterPrice',
+      tag: 'all',
+      type: 'single',
+      initTab: true,
+    });
   }
 
   /**
@@ -317,19 +464,21 @@ $(function () {
    * @param {String} tag tag标签值--必填
    * @param {Function} cb 回调函数，参数为form序列化数据
    * @param {String} type 类型（single | mutiple），默认为多选
+   * @param {Boolean} initTab 初始化标签（标识），默认为 false
    * @returns null
    */
-  function changeTagValue({ id, tag, cb, type = 'multiple' }) {
+  function changeTagValue({ id, tag, cb, type = 'multiple', initTab = false }) {
     const container = $(`#${id}`); // 当前 field 容器
     const that = container.find(`.tag[data-tag="${tag}"]`); // 当前点击的标签
     const isAll = that.data('tag') === 'all'; // 是否点击 “全部”
 
     if (type === 'single') {
       const currentTag = container.find('.active').data('tag');
-      if (tag === currentTag) return; // 点击单签选中标签--直接返回不做处理
+      // change 事件--已选全部点击无效（initTab除外，初始赋值用）
+      if (tag === currentTag && !initTab) return;
       container.find('.tag').removeClass('active');
       that.addClass('active');
-      const tagString = isAll ? '' : tag;
+      const tagString = isAll ? '' : that.data('code');
       switch (id) {
         case 'filterPrice':
           low_price = tagString.split(',')[0] || null;
@@ -345,7 +494,7 @@ $(function () {
       !isAll && that.toggleClass('active');
       // 获取当前已选中标签
       tags.each(function () {
-        if ($(this).hasClass('active')) tagsArr.push($(this).data('tag'));
+        if ($(this).hasClass('active')) tagsArr.push($(this).data('code'));
       });
 
       // 判断点击是否为全部按钮--其他控全部/全部清其他
@@ -356,7 +505,8 @@ $(function () {
           container.find('.all').removeClass('active');
         }
       } else {
-        if (!tagsArr.length) return;
+        // change 事件--已选全部点击无效（initTab除外，初始赋值用）
+        if (!tagsArr.length && !initTab) return;
         container.find('.tag').removeClass('active');
         that.addClass('active');
         tagsArr = [];
@@ -391,20 +541,7 @@ $(function () {
 
     // 回调--查询课程用
     if (cb) {
-      const data = {
-        lesson_type,
-        filter_month,
-        course_category,
-        product_direction,
-        professional_certify,
-        filter_city,
-        low_price,
-        up_price,
-        key_words,
-        pageSize,
-        currentPage,
-      };
-      cb(data);
+      cb();
     }
   }
 });

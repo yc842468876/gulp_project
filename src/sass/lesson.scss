@@ -22,6 +22,7 @@ body {
     padding-top: 45px;
   }
   .recommend-lesson-list {
+    height: 345px;
     padding-top: 38px;
     padding-bottom: 84px;
     overflow: hidden;
@@ -137,6 +138,7 @@ body {
         width: 792px;
         overflow: hidden;
         margin-bottom: -6px;
+        min-height: 24px;
         &.h24 {
           height: 24px;
         }
@@ -302,6 +304,17 @@ body {
                     font-size: 14px;
                     color: #fff;
                   }
+                  .isOverDue {
+                    display: block;
+                    width: 60px;
+                    height: 24px;
+                    line-height: 24px;
+                    border-radius: 3px;
+                    background: #ccc;
+                    text-align: center;
+                    font-size: 14px;
+                    color: #fff;
+                  }
                 }
               }
             }
@@ -321,27 +334,12 @@ body {
         }
         // 在线课列表
         .online-course-list {
+          background-color: #fff;
           padding: 32px 25px;
           .course-item {
             float: left;
             width: 266px;
             margin: 0 17px 24px;
-            position: relative;
-            &.overdue::after {
-              position: absolute;
-              z-index: 333;
-              width: 100%;
-              height: 100%;
-              opacity: 0.6;
-              content: '已过期';
-              top: 0px;
-              left: 0px;
-              font-size: 20px;
-              color: rgb(255, 255, 255);
-              line-height: 229px;
-              text-align: center;
-              background: rgb(0, 0, 0);
-            }
             .course-pic {
               width: 266px;
               height: 150px;

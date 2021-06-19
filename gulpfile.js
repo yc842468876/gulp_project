@@ -17,6 +17,10 @@ const del = require('del');
 /// 导入 gulp-webserver
 const webserver = require('gulp-webserver');
 
+let = proxyUrl = '';
+proxyUrl = 'http://192.168.8.254:8080'; // 代理--George本地
+// proxyUrl = 'http://47.103.133.195:8068'; // 代理--测试
+
 // 1、创建任务
 // 1.1、创建一个打包 css 的任务
 const cssHandler = function () {
@@ -107,15 +111,14 @@ const webHandler = function () {
       port: '8099', // 端口号
       livereload: true, // 当文件更新时候，是否自动刷新页面
       open: './pages/lesson.html', // 默认打开那一个文件
-      open: './pages/lessonDetail.html', // 默认打开那一个文件
+      open: './pages/lesson.html', // 默认打开那一个文件
       // 配置所有的代理
       proxies: [
         {
           // 代理标识符
           source: '/api',
           // 代理目标地址
-          // target: 'http://192.168.9.10:8080',
-          target: 'http://47.103.133.195:8068',
+          target: proxyUrl,
         },
       ],
     })

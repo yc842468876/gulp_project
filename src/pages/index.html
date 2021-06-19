@@ -46,7 +46,12 @@
             <li class="divider"></li>
             <li class="link-item select-lesson-center">
               <a href="/pages/lesson.html">选课中心</a>
-              <div class="link-item-mask"></div>
+              <div class="link-item-mask">
+                <!-- 标签 -->
+                <ul class="categorys clearfix"></ul>
+                <!-- 推荐课 -->
+                <ul class="recommend-list"></ul>
+              </div>
             </li>
             <li class="divider"></li>
             <li class="link-item"><a href="#">研究中心</a></li>
@@ -347,7 +352,12 @@
                   </div>
                 </div>
                 <!-- 右侧热门网课 -->
-                <div class="tab-c-r"></div>
+                <div class="tab-c-r">
+                  <div class="hot-lessons">
+                    <h3>热门网课</h3>
+                    <div id="hotWebCourse"></div>
+                  </div>
+                </div>
               </div>
 
               <!-- 底部查看更多链接 -->
@@ -587,12 +597,12 @@
     </div>
 
     <!-- -------------------------------模板片段 START--------------------------------------- -->
-    <!-- 选课中心 -->
+    <!-- 选课中心--标签 -->
     <script id="selectProductCenterTmp" type="text/html">
       <!-- 标签分类 -->
       {{ set productList = product && product.length > 0 ? product : [] }}
       {{each productList category idx1}}
-      <div class="category">
+      <li class="category">
         <h3>{{category.barName || '-'}}</h3>
         <hr />
         <ul class="first-class-list">
@@ -606,30 +616,38 @@
               <div
                 class="{{idx1 != 2 ? 'col-md-6 txt-ellipsis' : 'col-md-12 txt-ellipsis'}}"
               >
-                <a href="#"> {{secondClass || '-'}} </a>
+                {{if idx1 === 0}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=FACE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 1}}<a
+                  href="{{`/pages/lesson.html?lessonType=ONLINE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 2}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=PRO&supplyTag=${firstClass.firstClassName}`}}"
+                  >{{secondClass || '-'}}</a
+                >{{/if}}
               </div>
               {{/each}}
             </div>
           </li>
           {{/each}}
         </ul>
-      </div>
+      </li>
       {{/each}}
-      <!-- 推荐课 -->
-      {{ set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
-      [] }}
-      <ul class="recommend-list">
-        {{each hotList prd prdIdx}}
-        <li class="recommend-list-item">
-          <a href="#">
-            <img
-              src="{{prd.imgUrl || '../images/lesson_category_01.png'}}"
-              alt=""
-            />
-          </a>
-        </li>
-        {{/each}}
-      </ul>
+    </script>
+    <!-- 选课中心--推荐课 -->
+    <script id="selectProductRecommand" type="text/html">
+      {{each courses item idx}}
+      <li class="recommend-list-item">
+        <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
+          <img src="{{item.imgUrl}}" alt="" />
+        </a>
+      </li>
+      {{/each}}
     </script>
     <!-- 推荐课程-推荐学习 -->
     <script id="recommandStudyTmp1" type="text/html">
@@ -655,46 +673,43 @@
       {{/each}}
     </script>
     <!-- 热门网课 -->
-    <script id="recommandStudyHotTmp" type="text/html">
-      <div class="hot-lessons">
-        <h3>热门网课</h3>
-        <!-- 热门课程列表 -->
-        {{set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
-        []}} {{set pageList = [hotList.slice(0, 3), hotList.slice(3, 6)]}}
-        <ul class="hot-lesson-list">
-          <div class="tab-content">
-            {{each pageList page idx1}}
-            <div
-              class="{{idx1 == 0 ? 'tab-pane fade in active' : 'tab-pane fade'}}"
-              id="{{idx1 == 0 ? 'hotLessonPage1' : 'hotLessonPage2'}}"
-            >
-              {{each page}}
-              <li class="list-item">
-                <img
-                  src="{{$value.imgUrl || '../images/lesson_category_01.png'}}"
-                  alt=""
-                />
-                <p class="txt-ellipsis">{{$value.productName || '-'}}</p>
-              </li>
-              {{/each}}
-            </div>
+    <script id="hotWebCourseTmp" type="text/html">
+      <!-- 热门课程列表 -->
+      {{set courses = courses && courses.length > 0 ? courses : []}} {{set
+      pageList = [courses.slice(0, 3), courses.slice(3, 6)]}}
+      <ul class="hot-lesson-list">
+        <div class="tab-content">
+          {{each pageList page idx1}}
+          <div
+            class="{{idx1 == 0 ? 'tab-pane fade in active' : 'tab-pane fade'}}"
+            id="{{idx1 == 0 ? 'hotLessonPage1' : 'hotLessonPage2'}}"
+          >
+            {{each page}}
+            <li class="list-item">
+              <img
+                src="{{$value.imgUrl || '../images/lesson_category_01.png'}}"
+                alt=""
+              />
+              <p class="txt-ellipsis">{{$value.productName || '-'}}</p>
+            </li>
             {{/each}}
           </div>
-        </ul>
-
-        <!-- 分页 -->
-        <div class="hot-lesson-pagination">
-          {{if pageList[1].length > 0}}
-          <ul class="nav nav-pills nav-justified">
-            <li role="presentation" class="active">
-              <a href="#hotLessonPage1" data-toggle="pill">1</a>
-            </li>
-            <li role="presentation">
-              <a href="#hotLessonPage2" data-toggle="pill">2</a>
-            </li>
-          </ul>
-          {{/if}}
+          {{/each}}
         </div>
+      </ul>
+
+      <!-- 分页 -->
+      <div class="hot-lesson-pagination">
+        {{if pageList[1].length > 0}}
+        <ul class="nav nav-pills nav-justified">
+          <li role="presentation" class="active">
+            <a href="#hotLessonPage1" data-toggle="pill">1</a>
+          </li>
+          <li role="presentation">
+            <a href="#hotLessonPage2" data-toggle="pill">2</a>
+          </li>
+        </ul>
+        {{/if}}
       </div>
     </script>
     <!-- -------------------------------模板片段 END--------------------------------------- -->

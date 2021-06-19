@@ -64,64 +64,70 @@ body {
           width: 1200px;
           height: 800px;
           display: none;
+          // display: block;
           background-color: #fff;
           box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.45);
-          .category:nth-child(1) {
-            width: 256px;
-            margin-left: 20px;
-          }
-          .category:nth-child(2) {
-            width: 256px;
-            margin-left: 50px;
-          }
-          .category:nth-child(3) {
-            width: 346px;
-            margin-left: 50px;
-          }
-          .category {
+          .categorys {
             float: left;
-            > h3 {
-              margin-top: 20px;
-              font-size: 20px;
-              color: #e10210;
-              border-left: 2px solid #e10210;
-              padding-left: 14px;
+            width: 978px;
+            .category:nth-child(1) {
+              width: 256px;
+              margin-left: 20px;
             }
-            > hr {
-              border-color: #adadad;
-              margin: 20px 0;
+            .category:nth-child(2) {
+              width: 256px;
+              margin-left: 50px;
             }
-            .first-class-list {
-              .first-class-list-item {
-                margin-bottom: 18px;
-                .first-class-name {
-                  float: left;
-                  width: 94px;
-                  height: 30px;
-                  background-color: #d8d8d9;
-                  color: #211816;
-                  font-size: 16px;
-                  line-height: 30px;
-                  text-align: center;
-                }
-                .second-class-list {
-                  float: right;
-                  width: 150px;
-                  line-height: 20px;
-                  padding: 5px 0;
-                  &.certify {
-                    width: 238px;
+            .category:nth-child(3) {
+              width: 346px;
+              margin-left: 50px;
+            }
+            .category {
+              float: left;
+              > h3 {
+                margin-top: 20px;
+                font-size: 20px;
+                color: #e10210;
+                border-left: 2px solid #e10210;
+                padding-left: 14px;
+              }
+              > hr {
+                border-color: #adadad;
+                margin: 20px 0;
+              }
+              .first-class-list {
+                .first-class-list-item {
+                  margin-bottom: 18px;
+                  .first-class-name {
+                    float: left;
+                    width: 94px;
+                    height: 30px;
+                    background-color: #d8d8d9;
+                    color: #211816;
+                    font-size: 16px;
+                    line-height: 30px;
+                    text-align: center;
                   }
-                  a {
-                    color: #595858;
-                    &:hover {
-                      color: #e70114;
+                  .second-class-list {
+                    float: right;
+                    width: 150px;
+                    line-height: 20px;
+                    padding: 5px 0;
+                    &.certify {
+                      width: 238px;
+                    }
+                    a {
+                      color: #595858;
+                      &:hover {
+                        color: #e70114;
+                      }
                     }
                   }
                 }
               }
             }
           }
+
           // 推荐课程
           .recommend-list {
             float: left;

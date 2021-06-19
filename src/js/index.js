@@ -25,6 +25,33 @@ $(function () {
   function loadData() {
     // 获取推荐课
     getRecommandStudy();
+    // 获取热门网课
+    getHotWebCourses();
+  }
+
+  /**
+   * 获取热门网课
+   */
+  function getHotWebCourses() {
+    const postData = {
+      count: 6,
+      courseType: 'online',
+    };
+    $.post(
+      `${BASE_URL}/product/getPosterCourses`,
+      JSON.stringify(postData),
+      function (res) {
+        const { code, data } = res || {};
+        // console.log(data);
+        if (code == 200) {
+          $('#hotWebCourse').html(
+            template('hotWebCourseTmp', {
+              ...data,
+            })
+          );
+        }
+      }
+    );
   }
 
   /**
@@ -37,12 +64,6 @@ $(function () {
         // console.log(data, 'recommandStudy');
         $('#recommendedCourseTabPane1').html(
           template('recommandStudyTmp1', {
-            ...data,
-          })
-        );
-
-        $('.high-quality-lessons .tab-c-r').html(
-          template('recommandStudyHotTmp', {
             ...data,
           })
         );

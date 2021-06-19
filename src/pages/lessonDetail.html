@@ -46,7 +46,12 @@
             <li class="divider"></li>
             <li class="link-item active select-lesson-center">
               <a href="/pages/lesson.html">选课中心</a>
-              <div class="link-item-mask"></div>
+              <div class="link-item-mask">
+                <!-- 标签 -->
+                <ul class="categorys clearfix"></ul>
+                <!-- 推荐课 -->
+                <ul class="recommend-list"></ul>
+              </div>
             </li>
             <li class="divider"></li>
             <li class="link-item"><a href="#">研究中心</a></li>
@@ -373,12 +378,12 @@
     </div>
 
     <!-- -------------------------------模板片段 START--------------------------------------- -->
-    <!-- 选课中心 -->
+    <!-- 选课中心--标签 -->
     <script id="selectProductCenterTmp" type="text/html">
       <!-- 标签分类 -->
       {{ set productList = product && product.length > 0 ? product : [] }}
       {{each productList category idx1}}
-      <div class="category">
+      <li class="category">
         <h3>{{category.barName || '-'}}</h3>
         <hr />
         <ul class="first-class-list">
@@ -392,30 +397,38 @@
               <div
                 class="{{idx1 != 2 ? 'col-md-6 txt-ellipsis' : 'col-md-12 txt-ellipsis'}}"
               >
-                <a href="#"> {{secondClass || '-'}} </a>
+                {{if idx1 === 0}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=FACE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 1}}<a
+                  href="{{`/pages/lesson.html?lessonType=ONLINE&firstTag=${firstClass.firstClassName}&secondTag=${secondClass}`}}"
+                  >{{secondClass || '-'}}</a
+                >
+                {{else if idx1 === 2}}
+                <a
+                  href="{{`/pages/lesson.html?lessonType=PRO&supplyTag=${firstClass.firstClassName}`}}"
+                  >{{secondClass || '-'}}</a
+                >{{/if}}
               </div>
               {{/each}}
             </div>
           </li>
           {{/each}}
         </ul>
-      </div>
+      </li>
       {{/each}}
-      <!-- 推荐课 -->
-      {{ set hotList = recommendImg && recommendImg.length > 0 ? recommendImg :
-      [] }}
-      <ul class="recommend-list">
-        {{each hotList prd prdIdx}}
-        <li class="recommend-list-item">
-          <a href="#">
-            <img
-              src="{{prd.imgUrl || '../images/lesson_category_01.png'}}"
-              alt=""
-            />
-          </a>
-        </li>
-        {{/each}}
-      </ul>
+    </script>
+    <!-- 选课中心--推荐课 -->
+    <script id="selectProductRecommand" type="text/html">
+      {{each courses item idx}}
+      <li class="recommend-list-item">
+        <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
+          <img src="{{item.imgUrl}}" alt="" />
+        </a>
+      </li>
+      {{/each}}
     </script>
     <!-- -------------------------------模板片段 END--------------------------------------- -->
 

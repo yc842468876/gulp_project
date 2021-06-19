@@ -29,7 +29,7 @@ $(function () {
         .addClass('active')
         .siblings()
         .removeClass('active');
-      lesson_type = lessonType || 'GENERAL';
+      lesson_type = lessonType;
     }
     if (lessonType || firstTag || secondTag || supplyTag) {
       $('html, body').scrollTop($('.search-lessons').offset().top - 109);
@@ -284,7 +284,7 @@ $(function () {
       supplyList: professional_certify ? professional_certify.split(',') : [],
       city: filter_city,
       lowPrice: low_price,
-      up_price: up_price,
+      upPrice: up_price,
       keyWord: key_words,
       pageIndex: currentPage,
       pageSize: pageSize,
@@ -349,14 +349,14 @@ $(function () {
         $('#filterCity').show();
         $('#filterPrice').show();
         // 加载一二级标签数据
-        $('#courseCategory .tags ul').html(
+        $('#courseCategory .tags').html(
           template('courseCategoryTmp', {
             first_tag: first_tag.filter(
               (v) => v.labelType && v.labelType.includes('FACE')
             ),
           })
         );
-        $('#productDirection .tags ul').html(
+        $('#productDirection .tags').html(
           template('productDirectionTmp', {
             second_tag: second_tag.filter(
               (v) => v.labelType && v.labelType.includes('FACE')
@@ -372,14 +372,14 @@ $(function () {
         $('#filterCity').hide();
         $('#filterPrice').show();
         // 加载一二级标签数据
-        $('#courseCategory .tags ul').html(
+        $('#courseCategory .tags').html(
           template('courseCategoryTmp', {
             first_tag: first_tag.filter(
               (v) => v.labelType && v.labelType.includes('ONLINE')
             ),
           })
         );
-        $('#productDirection .tags ul').html(
+        $('#productDirection .tags').html(
           template('productDirectionTmp', {
             second_tag: second_tag.filter(
               (v) => v.labelType && v.labelType.includes('ONLINE')

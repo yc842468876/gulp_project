@@ -18,8 +18,8 @@ const del = require('del');
 const webserver = require('gulp-webserver');
 
 let = proxyUrl = '';
-proxyUrl = 'http://192.168.8.254:8080'; // 代理--George本地
-// proxyUrl = 'http://47.103.133.195:8068'; // 代理--测试
+// proxyUrl = 'http://192.168.8.254:8080'; // 代理--George本地
+proxyUrl = 'http://47.103.133.195:8068'; // 代理--测试
 
 // 1、创建任务
 // 1.1、创建一个打包 css 的任务

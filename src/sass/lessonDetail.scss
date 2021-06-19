@@ -59,6 +59,13 @@ body {
       a {
         line-height: 20px;
         color: #575757;
+        &:hover {
+          color: #e00011;
+        }
+      }
+      span {
+        line-height: 20px;
+        color: #999;
       }
     }
   }
@@ -175,13 +182,34 @@ body {
         }
       }
       .tab-content {
-        padding: 28px 16px 16px;
+        padding: 26px;
         background-color: #fff;
-        .detail {
-          height: 300px;
+        // 更多信息
+        .more-info {
+          min-height: 300px;
+          .part {
+            margin-bottom: 30px;
+            .tit {
+              border-bottom: 1px solid #ddd;
+              margin-bottom: 10px;
+              color: #575757;
+              & > img {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+                vertical-align: middle;
+              }
+              & > span {
+                display: inline-block;
+                line-height: 32px;
+                font-size: 20px;
+                vertical-align: middle;
+              }
+            }
+          }
         }
         .arrange {
-          height: 300px;
+          min-height: 300px;
         }
       }
     }

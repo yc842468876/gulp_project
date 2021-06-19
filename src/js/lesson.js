@@ -20,7 +20,21 @@ $(function () {
   /**
    * 初始化数据
    */
-  function initData() {}
+  function initData() {
+    // 根据页面路由传参--初始化页面 tab 和 滚动至选课模块
+    const { lessonType, firstTag, secondTag, supplyTag } = $.getUrlParam();
+    if (lessonType) {
+      $(`#lessonType a[href="#${lessonType}"]`)
+        .parent()
+        .addClass('active')
+        .siblings()
+        .removeClass('active');
+      lesson_type = lessonType || 'GENERAL';
+    }
+    if (lessonType || firstTag || secondTag || supplyTag) {
+      $('html, body').scrollTop($('.search-lessons').offset().top - 109);
+    }
+  }
 
   /**
    * 事件绑定
@@ -29,7 +43,8 @@ $(function () {
     // 切换类型监听
     $('#lessonType a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       const { type } = $(this).data();
-      handleTabChange(type);
+      lesson_type = type;
+      handleTabChange();
     });
     // 监听筛选条件点击事件--月份（多选）
     $('#filterMonth').on('click', '.tag', function () {
@@ -55,16 +70,7 @@ $(function () {
         const htmlStr = isExpand
           ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
           : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
-        $(this).html(htmlStr);
-        const autoHeight = $(this).siblings('.tags').find('ul').height();
-        $(this)
-          .siblings('.tags')
-          .animate(
-            {
-              height: isExpand ? autoHeight : '24px',
-            },
-            300
-          );
+        $(this).html(htmlStr).siblings('.tags').toggleClass('h24');
       });
     // 监听筛选条件点击事件--专业方向（多选）
     $('#productDirection')
@@ -81,16 +87,7 @@ $(function () {
         const htmlStr = isExpand
           ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
           : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
-        $(this).html(htmlStr);
-        const autoHeight = $(this).siblings('.tags').find('ul').height();
-        $(this)
-          .siblings('.tags')
-          .animate(
-            {
-              height: isExpand ? autoHeight : '24px',
-            },
-            300
-          );
+        $(this).html(htmlStr).siblings('.tags').toggleClass('h24');
       });
     // 监听筛选条件点击事件--职业认证（多选）
     $('#professionalCertify')
@@ -107,16 +104,7 @@ $(function () {
         const htmlStr = isExpand
           ? `收起&nbsp;<i class="glyphicon glyphicon-menu-up"></i>`
           : `更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>`;
-        $(this).html(htmlStr);
-        const autoHeight = $(this).siblings('.tags').find('ul').height();
-        $(this)
-          .siblings('.tags')
-          .animate(
-            {
-              height: isExpand ? autoHeight : '24px',
-            },
-            300
-          );
+        $(this).html(htmlStr).siblings('.tags').toggleClass('h24');
       });
     // 监听筛选条件点击事件--城市（多选）
     $('#filterCity').on('click', '.tag', function () {
@@ -179,18 +167,13 @@ $(function () {
         first_tag = data.first || [];
         second_tag = data.second || [];
         // 生成职业认证标签
-        $('#professionalCertify .tags ul').html(
+        $('#professionalCertify .tags').html(
           template('professionalCertifyTmp', {
             supply_tag: data.supply || [],
           })
         );
-        // 根据页面路由传参--初始化 一二级分类标签 渲染 和 其他标签 显示/隐藏
-        const { lessonType, firstTag, secondTag, supplyTag } = $.getUrlParam();
-        if (lessonType || firstTag || secondTag || supplyTag) {
-          lessonType && $(`#lessonType a[href="#${lessonType}"]`).tab('show'); // --查询两次bug，待完善
-          $('html, body').scrollTop($('.search-lessons').offset().top - 109);
-        }
-        handleTabChange(lessonType, { firstTag, secondTag, supplyTag });
+        const { firstTag, secondTag, supplyTag } = $.getUrlParam();
+        handleTabChange({ firstTag, secondTag, supplyTag });
       }
     });
   }
@@ -258,6 +241,8 @@ $(function () {
       totalPages: pageSum,
       onPageChanged: function (event, oldPage, newPage) {
         currentPage = newPage;
+        // 是翻页--自动滚动至当前列表上部
+        $('html, body').scrollTop($('.search-lessons').offset().top - 109);
         callback && callback();
       },
       tooltipTitles: function (type, page, current) {
@@ -318,6 +303,7 @@ $(function () {
               lessonType: lesson_type,
             })
           );
+          // count 为 0 时，分页组件报错处理
           if (data.count) {
             setPage(currentPage, Math.ceil(data.count / pageSize), queryData);
           } else {
@@ -333,9 +319,7 @@ $(function () {
    * @param {string} initTagObj 初始标签值--页面路由传参
    * @param {Object} initTagObj 初始标签值--页面路由传参
    */
-  function handleTabChange(type, initTagObj) {
-    // 更新 tab 类型
-    lesson_type = type || 'GENERAL';
+  function handleTabChange(initTagObj) {
     pageSize = lesson_type !== 'ONLINE' ? 5 : 15;
     // 过滤一二级分类标签 且 显示可选标签类型
     switch (lesson_type) {
@@ -346,13 +330,12 @@ $(function () {
         $('#professionalCertify').hide();
         $('#filterCity').show();
         $('#filterPrice').show();
-        // 加载一二级标签数据
-        $('#courseCategory .tags ul').html(
+        $('#courseCategory .tags').html(
           template('courseCategoryTmp', {
             first_tag,
           })
         );
-        $('#productDirection .tags ul').html(
+        $('#productDirection .tags').html(
           template('productDirectionTmp', {
             second_tag,
           })

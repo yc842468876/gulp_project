@@ -178,9 +178,7 @@
             <div class="form-group clearfix" id="courseCategory">
               <div class="filter-label">课程类别：</div>
               <div class="active all tag" data-tag="all">全部</div>
-              <div class="tags h24">
-                <ul class="clearfix"></ul>
-              </div>
+              <ul class="tags h24 clearfix"></ul>
               <div class="more">
                 更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
               </div>
@@ -189,9 +187,7 @@
             <div class="form-group clearfix" id="productDirection">
               <div class="filter-label">专业方向：</div>
               <div class="active all tag" data-tag="all">全部</div>
-              <div class="tags h24">
-                <ul class="clearfix"></ul>
-              </div>
+              <ul class="tags h24 clearfix"></ul>
               <div class="more">
                 更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
               </div>
@@ -200,9 +196,7 @@
             <div class="form-group clearfix" id="professionalCertify">
               <div class="filter-label">职业认证：</div>
               <div class="active all tag" data-tag="all">全部</div>
-              <div class="tags h24">
-                <ul class="clearfix"></ul>
-              </div>
+              <ul class="tags h24 clearfix"></ul>
               <div class="more">
                 更多&nbsp;<i class="glyphicon glyphicon-menu-down"></i>
               </div>
@@ -507,6 +501,7 @@
       </li>
       {{/each}}
     </script>
+    <!-- 课程列表 -->
     <script id="courseListTmp" type="text/html">
       {{if lessonType !== 'ONLINE'}}
       <!-- 课程列表 -->
@@ -581,7 +576,7 @@
       <ul class="online-course-list clearfix">
         {{each list item idx}}
         <li class="course-item">
-          <a href="`/pages/lessonDetail.html?productId=${item.productId}`">
+          <a href="{{`/pages/lessonDetail.html?productId=${item.productId}`}}">
             <div class="course-pic">
               <img src="{{item.headUrl}}" alt="" />
             </div>

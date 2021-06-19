@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../sass/global.css" />
     <!-- 引入公共样式 -->
     <link rel="stylesheet" href="../sass/common.css" />
+    <!-- 引入富文本框输出样式 -->
+    <link rel="stylesheet" href="../sass/braft-editor.css" />
     <!-- 引入界面样式 -->
     <link rel="stylesheet" href="../sass/lessonDetail.css" />
 
@@ -103,48 +105,9 @@
           </div>
         </section>
         <!-- 面包屑导航 -->
-        <section class="bread-nav">
-          <ul class="clearfix">
-            <li><a href="/pages/index.html">首页</a></li>
-            <li><a href="/pages/lesson.html">选课中心</a></li>
-            <li><a href="/pages/lesson.html">面授课程</a></li>
-            <li><a href="/pages/lesson.html">领导力</a></li>
-            <li><a href="/pages/lesson.html">管理经理</a></li>
-            <li class="active"><a href="#">跨部门沟通、协作与冲突处理</a></li>
-          </ul>
-        </section>
+        <section class="bread-nav" id="breadNav"></section>
         <!-- 课程信息部分 -->
-        <section class="course-info">
-          <h2 class="course-name">公司财务分析与风险防范</h2>
-          <div class="basic-info clearfix">
-            <div class="course-pic">
-              <img src="../images/lesson_category_01.png" alt="" />
-            </div>
-            <div class="txt-info">
-              <p class="clearfix">
-                <span class="tit">课程时长：</span>
-                <span class="days-num">2天</span>
-              </p>
-              <p class="clearfix">
-                <span class="tit">课程价格：</span>
-                <span class="price">¥3000/人</span>
-              </p>
-              <p class="clearfix">
-                <span class="tit">培训对象：</span>
-                <span class="fit-object"
-                  >财务总监、总会计师财务经理、财务主管、财务分析专员金融机构投资分析与研究人员</span
-                >
-              </p>
-              <p class="btn-group clearfix">
-                <button type="button" class="btn btn-default">
-                  观看课程介绍
-                </button>
-                <button type="button" class="btn btn-default">下载课纲</button>
-                <button type="button" class="btn btn-default">预约报名</button>
-              </p>
-            </div>
-          </div>
-        </section>
+        <section class="course-info" id="courseInfo"></section>
         <!-- 课程安排信息部分 -->
         <section class="course-arrange-info clearfix">
           <div class="left-side">
@@ -153,7 +116,7 @@
               <ul class="nav nav-pills course-tab" role="tablist">
                 <li role="presentation" class="active">
                   <a
-                    href="#courseDetail"
+                    href="#courseMoreInfo"
                     aria-controls="courseDetail"
                     role="tab"
                     data-toggle="tab"
@@ -172,13 +135,13 @@
               </ul>
               <!-- 内容部分 -->
               <div class="tab-content">
+                <!-- 课程详情（更多） -->
                 <div
                   role="tabpanel"
-                  class="tab-pane active detail"
-                  id="courseDetail"
-                >
-                  courseDetail
-                </div>
+                  class="tab-pane active more-info"
+                  id="courseMoreInfo"
+                ></div>
+                <!-- 课程安排 -->
                 <div
                   role="tabpanel"
                   class="tab-pane arrange"
@@ -429,6 +392,94 @@
         </a>
       </li>
       {{/each}}
+    </script>
+    <!-- 详情--面包屑导航 -->
+    <script id="breadNavTmp" type="text/html">
+      <ul class="clearfix">
+        <li><a href="/pages/index.html">首页</a></li>
+        <li><a href="/pages/lesson.html">选课中心</a></li>
+        <li><a href="/pages/lesson.html">{{detail.teachingForm || '-'}}</a></li>
+        <li><a href="/pages/lesson.html">{{detail.firstClass || '-'}}</a></li>
+        <li><a href="/pages/lesson.html">{{detail.secClass || '-'}}</a></li>
+        <li><span>{{detail.marketingProductName || '-'}}</span></li>
+      </ul>
+    </script>
+    <!-- 详情--基础信息 -->
+    <script id="courseInfoTmp" type="text/html">
+      <h2 class="course-name">{{detail.marketingProductName || '-'}}</h2>
+      <div class="basic-info clearfix">
+        <div class="course-pic">
+          <img src="{{detail.headUrl}}" alt="" />
+        </div>
+        <div class="txt-info">
+          <p class="clearfix">
+            <span class="tit">课程时长：</span>
+            <span class="days-num">{{detail.trainingDuration || '-'}}</span>
+          </p>
+          <p class="clearfix">
+            <span class="tit">课程价格：</span>
+            <span class="price">¥{{detail.coursePrice || '-'}}/人</span>
+          </p>
+          <p class="clearfix">
+            <span class="tit">培训对象：</span>
+            <span class="fit-object">{{detail.trainingTarget || '-'}}</span>
+          </p>
+          <p class="btn-group clearfix">
+            <button type="button" class="btn btn-default">观看课程介绍</button>
+            <button type="button" class="btn btn-default">下载课纲</button>
+            <button type="button" class="btn btn-default">预约报名</button>
+          </p>
+        </div>
+      </div>
+    </script>
+    <!-- 详情--基础信息（更多） -->
+    <script id="courseMoreInfoTmp" type="text/html">
+      <ul>
+        <li class="part">
+          <div class="tit">
+            <img src="../images/one_stop_solution_01.png" alt="" />
+            <span>睿选观点</span>
+          </div>
+          <div class="desc braft-output-content">
+            {{if detail.keysourseOpinion}} {{@detail.keysourseOpinion}} {{else}}
+            {{'-'}} {{/if}}
+          </div>
+        </li>
+        <li class="part">
+          <div class="tit">
+            <img src="../images/one_stop_solution_01.png" alt="" />
+            <span>课程收益</span>
+          </div>
+          <div class="desc braft-output-content">
+            {{if detail.courseProfit}} {{@detail.courseProfit}} {{else}} {{'-'}}
+            {{/if}}
+          </div>
+        </li>
+        <li class="part">
+          <div class="tit">
+            <img src="../images/one_stop_solution_01.png" alt="" />
+            <span>课程特色及授课方式</span>
+          </div>
+          <div class="desc braft-output-content">
+            {{if detail.courseFeatuer}} {{@detail.courseFeatuer}} {{else}}
+            {{'-'}} {{/if}}
+          </div>
+        </li>
+        <li class="part">
+          <div class="tit">
+            <img src="../images/one_stop_solution_01.png" alt="" />
+            <span>培训对象</span>
+          </div>
+          <div class="desc">{{detail.trainingTarget || '-'}}</div>
+        </li>
+        <li class="part">
+          <div class="tit">
+            <img src="../images/one_stop_solution_01.png" alt="" />
+            <span>培训时间</span>
+          </div>
+          <div class="desc">{{detail.trainingDuration || '-'}}</div>
+        </li>
+      </ul>
     </script>
     <!-- -------------------------------模板片段 END--------------------------------------- -->
 
